@@ -1,5 +1,7 @@
-# a1-s3784709
+# a2-s3784709
 Fresh Reminder App Prototype
+
+**OLD README, NEEDS UPDATING**
 
 ## Project Overview
 Fresh Reminder is an app which tracks the expiration dates of foods which you have purchased in recent shopping trips, so that you can be reminded (prior to them going off/expiring). This reduces food waste, along with increasing food handling safety.
