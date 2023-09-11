@@ -31,7 +31,7 @@ enum ItemCategory: CustomStringConvertible {
 }
 
 // List of item categories (used to separate item list into categories)
-// Will be replaced when moving to Swift Data models
+// Will be replaced when moving to Core Data models
 struct FridgeSection: Identifiable {
     var id = UUID()
     var itemCategory: ItemCategory

@@ -78,14 +78,9 @@
 		2D6133E22A82314B008EEC3D /* Fresh Reminder */ = {
 			isa = PBXGroup;
 			children = (
-				2D81E6732A9B1D42007CA724 /* Settings */,
-				2D81E66E2A95E0ED007CA724 /* Item */,
-				2D81E6652A934B0A007CA724 /* Util */,
-				2D81E6452A89F76B007CA724 /* Components */,
-				2D81E6442A89F75B007CA724 /* Fridge */,
-				2D81E6432A89F746007CA724 /* Calendar */,
+				2DCB1E352AAF2D16009D7E80 /* View */,
+				2DCB1E342AAF2D10009D7E80 /* Model */,
 				2D6133E32A82314B008EEC3D /* Fresh_ReminderApp.swift */,
-				2D6133E52A82314B008EEC3D /* ContentView.swift */,
 				2D6133E72A82314D008EEC3D /* Assets.xcassets */,
 				2D6133E92A82314D008EEC3D /* Fresh_Reminder.entitlements */,
 				2D6133EA2A82314D008EEC3D /* Preview Content */,
@@ -157,7 +152,6 @@
 		2D81E6722A9B1D0B007CA724 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				2D81E6412A88D3B4007CA724 /* FridgeItem.swift */,
 				2D81E63F2A823C5D007CA724 /* FloatingButton.swift */,
 			);
 			path = Components;
@@ -167,9 +161,31 @@
 			isa = PBXGroup;
 			children = (
 				2D81E63B2A82333E007CA724 /* SettingsView.swift */,
-				2DCB1E152A9B649A009D7E80 /* UserSettings.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		2DCB1E342AAF2D10009D7E80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2DCB1E152A9B649A009D7E80 /* UserSettings.swift */,
+				2D81E6412A88D3B4007CA724 /* FridgeItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2DCB1E352AAF2D16009D7E80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D6133E52A82314B008EEC3D /* ContentView.swift */,
+				2D81E6732A9B1D42007CA724 /* Settings */,
+				2D81E66E2A95E0ED007CA724 /* Item */,
+				2D81E6652A934B0A007CA724 /* Util */,
+				2D81E6452A89F76B007CA724 /* Components */,
+				2D81E6442A89F75B007CA724 /* Fridge */,
+				2D81E6432A89F746007CA724 /* Calendar */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
