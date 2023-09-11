@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D6133E42A82314B008EEC3D /* Fresh_ReminderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6133E32A82314B008EEC3D /* Fresh_ReminderApp.swift */; };
+		2D6133E62A82314B008EEC3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6133E52A82314B008EEC3D /* ContentView.swift */; };
+		2D6133E82A82314D008EEC3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D6133E72A82314D008EEC3D /* Assets.xcassets */; };
+		2D6133EC2A82314D008EEC3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D6133EB2A82314D008EEC3D /* Preview Assets.xcassets */; };
+		2D81E6382A823314007CA724 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E6372A823313007CA724 /* CalendarView.swift */; };
+		2D81E63A2A823328007CA724 /* FridgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E6392A823328007CA724 /* FridgeView.swift */; };
+		2D81E63C2A82333E007CA724 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E63B2A82333E007CA724 /* SettingsView.swift */; };
+		2D81E6402A823C5D007CA724 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E63F2A823C5D007CA724 /* FloatingButton.swift */; };
+		2D81E6422A88D3B5007CA724 /* FridgeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E6412A88D3B4007CA724 /* FridgeItem.swift */; };
+		2D81E6472A89FB95007CA724 /* CalendarDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E6462A89FB95007CA724 /* CalendarDates.swift */; };
+		2D81E6672A934B27007CA724 /* GestureControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E6662A934B27007CA724 /* GestureControl.swift */; };
+		2D81E6692A934BA3007CA724 /* CalendarGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E6682A934BA3007CA724 /* CalendarGrid.swift */; };
+		2D81E66B2A935206007CA724 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E66A2A935206007CA724 /* SearchBar.swift */; };
+		2D81E66D2A948584007CA724 /* ListSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E66C2A948584007CA724 /* ListSpacer.swift */; };
+		2D81E6702A9ADE5B007CA724 /* ItemSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E66F2A9ADE5B007CA724 /* ItemSheet.swift */; };
+		2D81E6752A9B1F54007CA724 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E6742A9B1F54007CA724 /* NewItemView.swift */; };
+		2DCB1E162A9B649A009D7E80 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB1E152A9B649A009D7E80 /* UserSettings.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2D6133E02A82314B008EEC3D /* Fresh Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fresh Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D6133E32A82314B008EEC3D /* Fresh_ReminderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fresh_ReminderApp.swift; sourceTree = "<group>"; };
+		2D6133E52A82314B008EEC3D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2D6133E72A82314D008EEC3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D6133E92A82314D008EEC3D /* Fresh_Reminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fresh_Reminder.entitlements; sourceTree = "<group>"; };
+		2D6133EB2A82314D008EEC3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2D81E6372A823313007CA724 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		2D81E6392A823328007CA724 /* FridgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeView.swift; sourceTree = "<group>"; };
+		2D81E63B2A82333E007CA724 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2D81E63F2A823C5D007CA724 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		2D81E6412A88D3B4007CA724 /* FridgeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeItem.swift; sourceTree = "<group>"; };
+		2D81E6462A89FB95007CA724 /* CalendarDates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDates.swift; sourceTree = "<group>"; };
+		2D81E6662A934B27007CA724 /* GestureControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureControl.swift; sourceTree = "<group>"; };
+		2D81E6682A934BA3007CA724 /* CalendarGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGrid.swift; sourceTree = "<group>"; };
+		2D81E66A2A935206007CA724 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		2D81E66C2A948584007CA724 /* ListSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSpacer.swift; sourceTree = "<group>"; };
+		2D81E66F2A9ADE5B007CA724 /* ItemSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSheet.swift; sourceTree = "<group>"; };
+		2D81E6742A9B1F54007CA724 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
+		2DCB1E152A9B649A009D7E80 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D6133DD2A82314B008EEC3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D6133D72A82314B008EEC3D = {
+			isa = PBXGroup;
+			children = (
+				2D6133E22A82314B008EEC3D /* Fresh Reminder */,
+				2D6133E12A82314B008EEC3D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D6133E12A82314B008EEC3D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D6133E02A82314B008EEC3D /* Fresh Reminder.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D6133E22A82314B008EEC3D /* Fresh Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				2D81E6732A9B1D42007CA724 /* Settings */,
+				2D81E66E2A95E0ED007CA724 /* Item */,
+				2D81E6652A934B0A007CA724 /* Util */,
+				2D81E6452A89F76B007CA724 /* Components */,
+				2D81E6442A89F75B007CA724 /* Fridge */,
+				2D81E6432A89F746007CA724 /* Calendar */,
+				2D6133E32A82314B008EEC3D /* Fresh_ReminderApp.swift */,
+				2D6133E52A82314B008EEC3D /* ContentView.swift */,
+				2D6133E72A82314D008EEC3D /* Assets.xcassets */,
+				2D6133E92A82314D008EEC3D /* Fresh_Reminder.entitlements */,
+				2D6133EA2A82314D008EEC3D /* Preview Content */,
+			);
+			path = "Fresh Reminder";
+			sourceTree = "<group>";
+		};
+		2D6133EA2A82314D008EEC3D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2D6133EB2A82314D008EEC3D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2D81E6432A89F746007CA724 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				2D81E6712A9B1CFC007CA724 /* Components */,
+				2D81E6372A823313007CA724 /* CalendarView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		2D81E6442A89F75B007CA724 /* Fridge */ = {
+			isa = PBXGroup;
+			children = (
+				2D81E6722A9B1D0B007CA724 /* Components */,
+				2D81E6392A823328007CA724 /* FridgeView.swift */,
+			);
+			path = Fridge;
+			sourceTree = "<group>";
+		};
+		2D81E6452A89F76B007CA724 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2D81E66A2A935206007CA724 /* SearchBar.swift */,
+				2D81E66C2A948584007CA724 /* ListSpacer.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2D81E6652A934B0A007CA724 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2D81E6662A934B27007CA724 /* GestureControl.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		2D81E66E2A95E0ED007CA724 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				2D81E66F2A9ADE5B007CA724 /* ItemSheet.swift */,
+				2D81E6742A9B1F54007CA724 /* NewItemView.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		2D81E6712A9B1CFC007CA724 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2D81E6682A934BA3007CA724 /* CalendarGrid.swift */,
+				2D81E6462A89FB95007CA724 /* CalendarDates.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2D81E6722A9B1D0B007CA724 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2D81E6412A88D3B4007CA724 /* FridgeItem.swift */,
+				2D81E63F2A823C5D007CA724 /* FloatingButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2D81E6732A9B1D42007CA724 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2D81E63B2A82333E007CA724 /* SettingsView.swift */,
+				2DCB1E152A9B649A009D7E80 /* UserSettings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D6133DF2A82314B008EEC3D /* Fresh Reminder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D6133EF2A82314D008EEC3D /* Build configuration list for PBXNativeTarget "Fresh Reminder" */;
+			buildPhases = (
+				2D6133DC2A82314B008EEC3D /* Sources */,
+				2D6133DD2A82314B008EEC3D /* Frameworks */,
+				2D6133DE2A82314B008EEC3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fresh Reminder";
+			productName = "Fresh Reminder";
+			productReference = 2D6133E02A82314B008EEC3D /* Fresh Reminder.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D6133D82A82314B008EEC3D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					2D6133DF2A82314B008EEC3D = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 2D6133DB2A82314B008EEC3D /* Build configuration list for PBXProject "Fresh Reminder" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2D6133D72A82314B008EEC3D;
+			productRefGroup = 2D6133E12A82314B008EEC3D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D6133DF2A82314B008EEC3D /* Fresh Reminder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D6133DE2A82314B008EEC3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D6133EC2A82314D008EEC3D /* Preview Assets.xcassets in Resources */,
+				2D6133E82A82314D008EEC3D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D6133DC2A82314B008EEC3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D81E6422A88D3B5007CA724 /* FridgeItem.swift in Sources */,
+				2D81E6472A89FB95007CA724 /* CalendarDates.swift in Sources */,
+				2D81E6752A9B1F54007CA724 /* NewItemView.swift in Sources */,
+				2D81E63C2A82333E007CA724 /* SettingsView.swift in Sources */,
+				2D81E6692A934BA3007CA724 /* CalendarGrid.swift in Sources */,
+				2D6133E62A82314B008EEC3D /* ContentView.swift in Sources */,
+				2D81E66D2A948584007CA724 /* ListSpacer.swift in Sources */,
+				2D81E6672A934B27007CA724 /* GestureControl.swift in Sources */,
+				2D6133E42A82314B008EEC3D /* Fresh_ReminderApp.swift in Sources */,
+				2D81E6382A823314007CA724 /* CalendarView.swift in Sources */,
+				2D81E6702A9ADE5B007CA724 /* ItemSheet.swift in Sources */,
+				2D81E63A2A823328007CA724 /* FridgeView.swift in Sources */,
+				2D81E66B2A935206007CA724 /* SearchBar.swift in Sources */,
+				2DCB1E162A9B649A009D7E80 /* UserSettings.swift in Sources */,
+				2D81E6402A823C5D007CA724 /* FloatingButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2D6133ED2A82314D008EEC3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2D6133EE2A82314D008EEC3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		2D6133F02A82314D008EEC3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Fresh Reminder/Fresh_Reminder.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Fresh Reminder/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "None.Fresh-Reminder";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2D6133F12A82314D008EEC3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Fresh Reminder/Fresh_Reminder.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Fresh Reminder/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "None.Fresh-Reminder";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D6133DB2A82314B008EEC3D /* Build configuration list for PBXProject "Fresh Reminder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D6133ED2A82314D008EEC3D /* Debug */,
+				2D6133EE2A82314D008EEC3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D6133EF2A82314D008EEC3D /* Build configuration list for PBXNativeTarget "Fresh Reminder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D6133F02A82314D008EEC3D /* Debug */,
+				2D6133F12A82314D008EEC3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2D6133D82A82314B008EEC3D /* Project object */;
+}
