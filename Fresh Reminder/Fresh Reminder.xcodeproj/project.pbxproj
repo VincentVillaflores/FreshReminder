@@ -25,6 +25,7 @@
 		2D81E6752A9B1F54007CA724 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E6742A9B1F54007CA724 /* NewItemView.swift */; };
 		2DCB1E162A9B649A009D7E80 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB1E152A9B649A009D7E80 /* UserSettings.swift */; };
 		794F2CD92AAFD4C20023FA34 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CD72AAFD4C20023FA34 /* Model.xcdatamodeld */; };
+		794F2CDB2AAFD7130023FA34 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CDA2AAFD7130023FA34 /* Persistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		2D81E6742A9B1F54007CA724 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		2DCB1E152A9B649A009D7E80 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		794F2CD82AAFD4C20023FA34 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		794F2CDA2AAFD7130023FA34 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				2DCB1E152A9B649A009D7E80 /* UserSettings.swift */,
 				2D81E6412A88D3B4007CA724 /* FridgeItem.swift */,
 				794F2CD72AAFD4C20023FA34 /* Model.xcdatamodeld */,
+				794F2CDA2AAFD7130023FA34 /* Persistence.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				2D81E6422A88D3B5007CA724 /* FridgeItem.swift in Sources */,
 				2D81E6472A89FB95007CA724 /* CalendarDates.swift in Sources */,
+				794F2CDB2AAFD7130023FA34 /* Persistence.swift in Sources */,
 				2D81E6752A9B1F54007CA724 /* NewItemView.swift in Sources */,
 				2D81E63C2A82333E007CA724 /* SettingsView.swift in Sources */,
 				2D81E6692A934BA3007CA724 /* CalendarGrid.swift in Sources */,
