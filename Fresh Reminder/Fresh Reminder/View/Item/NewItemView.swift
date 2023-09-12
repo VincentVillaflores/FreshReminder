@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct NewItemView: View {
+    @Environment(\.managedObjectContext) var context
+    
+    @FetchRequest(
+        entity: Product.entity(),
+        sortDescriptors: [ NSSortDescriptor(keyPath: \Product.name, ascending: false) ])
+    var productsList: FetchedResults<Product>
+    
     @Environment(\.dismiss)
     private var dismiss
     
@@ -64,14 +71,24 @@ struct NewItemView: View {
                     }
                     
                     // Add item to existing category
-                    for (index, section) in sectionList.enumerated() {
-                        if (section.itemCategory == itemCategory) {
-                            sectionList[index].itemList.append(FridgeItem(itemName: itemName, itemCategory: itemCategory, dateBought: dateBought, timeTillExpiration: daysToSeconds(days: expiryDays)))
-                        }
+                    let newItem = Product(context: context)
+                    newItem.name = itemName
+                    newItem.category = itemCategory.description
+                    newItem.dateBought = dateBought
+                    let expiryDate = Calendar.current.date(byAdding: .day, value: expiryDays, to: dateBought)
+                    newItem.expirationDate = expiryDate
+                    
+                    do {
+                        try context.save()
+                        // Remove this view from the navigation stack
+                        dismiss()
+                    } catch {
+                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                        let nsError = error as NSError
+                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                     }
                     
-                    // Remove this view from the navigation stack
-                    dismiss()
+                    
                 } label: {
                     Text("Submit")
                 }
@@ -95,6 +112,7 @@ struct MockNewItemView: View {
     
     var body: some View {
         NewItemView(sectionList: $sectionList)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
 #endif

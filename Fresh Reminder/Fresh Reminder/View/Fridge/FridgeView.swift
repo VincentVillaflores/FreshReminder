@@ -8,6 +8,17 @@
 import SwiftUI
 
 struct FridgeView: View {
+    @Environment(\.managedObjectContext) var context
+    
+    @FetchRequest(
+        entity: Product.entity(),
+        sortDescriptors: [ NSSortDescriptor(keyPath: \Product.name, ascending: false) ])
+    var productsList: FetchedResults<Product>
+    
+    var uniqueCategories: Set<String> {
+        Set(productsList.compactMap { $0.category })
+    }
+    
     @Binding
     var sectionList: [FridgeSection]
     
@@ -28,18 +39,15 @@ struct FridgeView: View {
                         
                         SearchBar(search: $searchString)
                         
-                        ForEach($sectionList, id: \.id) { $section in
-                            // Item Category
-                            Section(section.itemCategory.description) {
-                                // Items within selected item category
-                                ForEach($section.itemList, id: \.id) { $item in
-                                    if isSearchItem(string: item.itemName, searchString: searchString) {
-                                        
-                                        ItemSheet(item: $item, sectionList: $sectionList)
-                                    }
-                                }.onDelete { (indexSet) in
-                                    section.itemList.remove(atOffsets: indexSet)
+                        ForEach(Array(uniqueCategories), id: \.self) { category in
+                            let categoryItems = productsList.filter { $0.category == category }
+                            
+                            // Define the items that belong to this category
+                            Section(header: Text(category)){
+                                ForEach(categoryItems, id: \.name) { item in
+                                    Text(item.name ?? "Unknown Name")
                                 }
+                                .onDelete(perform: removeItem)
                             }
                         }
                         ListSpacer()
@@ -49,6 +57,19 @@ struct FridgeView: View {
                 // Menu button to navigate to manual item input / camera input
                 FloatingButton(sectionList: $sectionList)
             }
+        }
+    }
+    
+    func removeItem(at offsets:IndexSet){
+        for index in offsets{
+            let product = productsList[index]
+            context.delete(product)
+        }
+        
+        do {
+            try context.save()
+        } catch {
+            print(error)
         }
     }
 }
@@ -66,6 +87,7 @@ struct MockFridgeView: View {
     
     var body: some View {
         FridgeView(sectionList: $sectionList)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
 #endif
