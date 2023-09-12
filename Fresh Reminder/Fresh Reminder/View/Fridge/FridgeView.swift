@@ -45,7 +45,7 @@ struct FridgeView: View {
                             // Define the items that belong to this category
                             Section(header: Text(category)){
                                 ForEach(categoryItems, id: \.name) { item in
-                                    Text(item.name ?? "Unknown Name")
+                                    ItemSheet(item: Binding.constant(item), sectionList: $sectionList)
                                 }
                                 .onDelete(perform: removeItem)
                             }

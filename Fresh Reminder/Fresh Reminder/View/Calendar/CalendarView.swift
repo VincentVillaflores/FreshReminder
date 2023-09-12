@@ -74,7 +74,7 @@ struct CalendarView: View {
                         ForEach($sectionList) { $section in
                             ForEach($section.itemList) { $item in
                                 if (item.expirationDate == selectedDate) {
-                                    ItemSheet(item: $item, sectionList: $sectionList, displayDate: false)
+                                    //ItemSheet(item: $item, sectionList: $sectionList, displayDate: false)
                                 }
                             }
                         }

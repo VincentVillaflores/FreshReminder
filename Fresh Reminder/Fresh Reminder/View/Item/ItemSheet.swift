@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemSheet: View {
     @Binding
-    var item: FridgeItem
+    var item: Product
     
     @Binding
     var sectionList: [FridgeSection]
@@ -25,9 +25,9 @@ struct ItemSheet: View {
         } label: {
             HStack{
                 VStack(alignment: .leading) {
-                    Text(item.itemName)
+                    Text(item.name!)
                     if (displayDate) {
-                        Text("Expiry: \(formatDate(date: item.expirationDate))")
+                        Text("Expiry: \(formatDate(date: item.expirationDate!))")
                     }
                     
                 }.foregroundColor(.primary)
@@ -49,31 +49,31 @@ struct ItemSheet: View {
                 }
                 Spacer()
                 
-                Text(item.itemName)
+                Text(item.name!)
                     .font(.largeTitle)
                     .padding()
                 
                 LazyVGrid(columns: [GridItem(), GridItem()]) {
                     Text("Expiration Date")
                         .padding(.vertical)
-                    Text(formatDate(date: item.expirationDate))
+                    Text(formatDate(date: item.expirationDate!))
                         .padding(.vertical)
                     
                     // Functions to adjust expiry of item
                     Button {
-                        item.timeTillExpiration = max(item.timeTillExpiration + daysToSeconds(days: -1), 0)
+                        //item.timeTillExpiration = max(item.timeTillExpiration + daysToSeconds(days: -1), 0)
                     } label: {Text("-1 Day")}
                         .padding(.bottom)
                     Button {
-                        item.timeTillExpiration = max(item.timeTillExpiration + daysToSeconds(days: 1), 0)
+                        //item.timeTillExpiration = max(item.timeTillExpiration + daysToSeconds(days: 1), 0)
                     } label: {Text("+1 Day")}
                         .padding(.bottom)
                     Button {
-                        item.timeTillExpiration = max(item.timeTillExpiration + daysToSeconds(days: -7), 0)
+                        //item.timeTillExpiration = max(item.timeTillExpiration + daysToSeconds(days: -7), 0)
                     } label: {Text("-1 Week")}
                         .padding(.bottom)
                     Button {
-                        item.timeTillExpiration = max(item.timeTillExpiration + daysToSeconds(days: 7), 0)
+                        //item.timeTillExpiration = max(item.timeTillExpiration + daysToSeconds(days: 7), 0)
                     } label: {Text("+1 Week")}
                         .padding(.bottom)
                 }.padding().background(.regularMaterial).cornerRadius(10)
@@ -109,7 +109,7 @@ struct ItemSheet_Previews: PreviewProvider {
 
 struct MockItemSheet: View {
     @State
-    var item = FridgeItem(itemName: "Steak", itemCategory: .Meat, dateBought: Date.now, timeTillExpiration: daysToSeconds(days: 4))
+    var item = Product()
     
     @State
     var sectionList = loadFridgeItems()
