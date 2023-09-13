@@ -10,6 +10,12 @@ import SwiftUI
 @main
 struct Fresh_ReminderApp: App {
     let persistenceController = PersistenceController.shared
+    @StateObject private var cdvm: CoreDataViewModel
+    init(){
+        let context = persistenceController.container.viewContext
+        _cdvm = StateObject(wrappedValue: CoreDataViewModel(context: context))
+        cdvm.setUp()
+    }
     
     var body: some Scene {
         WindowGroup {
@@ -18,6 +24,7 @@ struct Fresh_ReminderApp: App {
                     UserSettings(reminderFV: 1, reminderMeat: 1, reminderSeafood: 1, reminderDairy: 1, reminderGrain: 1, reminderMixed: 1, reminderMisc: 1)
                 )
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(cdvm)
         }
     }
 }

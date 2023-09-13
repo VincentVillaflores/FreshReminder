@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct FridgeView: View {
-    @Environment(\.managedObjectContext) var context
+    @EnvironmentObject var cdvm: CoreDataViewModel
     
-    @FetchRequest(
-        entity: Product.entity(),
-        sortDescriptors: [ NSSortDescriptor(keyPath: \Product.name, ascending: false) ])
-    var productsList: FetchedResults<Product>
-    
-    var uniqueCategories: Set<String> {
-        Set(productsList.compactMap { $0.category })
+    var productsList: [Product] {
+        return cdvm.products
+    }
+
+    var uniqueCategories: [String] {
+        return cdvm.uniqueCategories()
     }
     
     @Binding
@@ -24,7 +23,7 @@ struct FridgeView: View {
     
     @State
     var searchString = ""
-    
+
     var body: some View {
         NavigationStack{
             ZStack{
@@ -39,12 +38,15 @@ struct FridgeView: View {
                         
                         SearchBar(search: $searchString)
                         
+                        
                         ForEach(Array(uniqueCategories), id: \.self) { category in
-                            let categoryItems = productsList.filter { $0.category == category }
+                            var categoryItems: [Product] {
+                                return cdvm.getProductsIn(category: category)
+                            }
                             
                             // Define the items that belong to this category
                             Section(header: Text(category)){
-                                ForEach(categoryItems, id: \.name) { item in
+                                ForEach(categoryItems) { item in
                                     ItemSheet(item: Binding.constant(item), sectionList: $sectionList)
                                 }
                                 .onDelete(perform: removeItem)
@@ -61,17 +63,17 @@ struct FridgeView: View {
     }
     
     func removeItem(at offsets:IndexSet){
-        for index in offsets{
-            let product = productsList[index]
-            context.delete(product)
+        var flattenedProducts: [Product] = []
+        for category in uniqueCategories {
+            flattenedProducts.append(contentsOf: cdvm.getProductsIn(category: category))
         }
-        
-        do {
-            try context.save()
-        } catch {
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+
+        // Loop through offsets and delete corresponding products
+        for offset in offsets {
+            if offset < flattenedProducts.count {
+                let productToDelete = flattenedProducts[offset]
+                cdvm.deleteProduct(productToDelete)
+            }
         }
     }
 }
@@ -88,8 +90,9 @@ struct MockFridgeView: View {
     var sectionList = loadFridgeItems()
     
     var body: some View {
+        let cdvm = CoreDataViewModel(context: PersistenceController.preview.container.viewContext)
         FridgeView(sectionList: $sectionList)
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            .environmentObject(cdvm)
     }
 }
 #endif

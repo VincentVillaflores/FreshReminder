@@ -8,12 +8,7 @@
 import SwiftUI
 
 struct NewItemView: View {
-    @Environment(\.managedObjectContext) var context
-    
-    @FetchRequest(
-        entity: Product.entity(),
-        sortDescriptors: [ NSSortDescriptor(keyPath: \Product.name, ascending: false) ])
-    var productsList: FetchedResults<Product>
+    @EnvironmentObject var cdvm: CoreDataViewModel
     
     @Environment(\.dismiss)
     private var dismiss
@@ -71,22 +66,8 @@ struct NewItemView: View {
                     }
                     
                     // Add item to existing category
-                    let newItem = Product(context: context)
-                    newItem.name = itemName
-                    newItem.category = itemCategory.description
-                    newItem.dateBought = dateBought
-                    let expiryDate = Calendar.current.date(byAdding: .day, value: expiryDays, to: dateBought)
-                    newItem.expirationDate = expiryDate
-                    
-                    do {
-                        try context.save()
-                        // Remove this view from the navigation stack
-                        dismiss()
-                    } catch {
-                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                        let nsError = error as NSError
-                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                    }
+                    cdvm.addProduct(name: itemName, category: itemCategory.description, dateBought: dateBought, expiryDays: expiryDays)
+                    dismiss()
                     
                     
                 } label: {
@@ -111,8 +92,10 @@ struct MockNewItemView: View {
     var sectionList = loadFridgeItems()
     
     var body: some View {
+        let cdvm = CoreDataViewModel(context: PersistenceController.preview.container.viewContext)
         NewItemView(sectionList: $sectionList)
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            .environmentObject(cdvm)
     }
 }
 #endif

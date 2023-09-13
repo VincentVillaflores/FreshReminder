@@ -11,6 +11,8 @@ let currDate = getStartOfDay(date: Date.now, calendar: Calendar.current)
 let calendar = Calendar.current
 
 struct CalendarView: View {
+    @EnvironmentObject var cdvm: CoreDataViewModel
+    
     @Binding
     var sectionList: [FridgeSection]
     
@@ -30,18 +32,15 @@ struct CalendarView: View {
     var dateArray: [DateColor] { generateDateArray(date: monthDate, calendar: calendar) }
     
     var dateSet: Set<Date> {
-        var returnSet: Set<Date> = []
-        for section in sectionList {
-            for item in section.itemList {
-                returnSet.insert(item.expirationDate)
-            }
-        }
-        return returnSet
+        return cdvm.uniqueDates()
     }
     
     var body: some View {
         
         VStack {
+            Text("").onAppear() {
+                cdvm.refreshProducts()
+            }
             // Top bar containing month name and arrows
             HStack {
                 Text(verbatim: "\(getMonthName(month: monthInt, calendar: calendar)), \(calendar.component(.year, from: monthDate))")
@@ -69,14 +68,11 @@ struct CalendarView: View {
             
             // List of expiring foods
             List {
-                if dateSet.contains(selectedDate) {
+                let expiringProducts = cdvm.getProductsExpiringOn(date: selectedDate)
+                if !expiringProducts.isEmpty {
                     Section("Expiring on \(formatDate(date: selectedDate))") {
-                        ForEach($sectionList) { $section in
-                            ForEach($section.itemList) { $item in
-                                if (item.expirationDate == selectedDate) {
-                                    //ItemSheet(item: $item, sectionList: $sectionList, displayDate: false)
-                                }
-                            }
+                        ForEach(expiringProducts) { item in
+                            ItemSheet(item: Binding.constant(item), sectionList: $sectionList, displayDate: false)
                         }
                     }
                 }
@@ -101,7 +97,9 @@ struct MockCalendarView: View {
     var sectionList = loadFridgeItems()
     
     var body: some View {
+        let cdvm = CoreDataViewModel(context: PersistenceController.preview.container.viewContext)
         CalendarView(sectionList: $sectionList)
+            .environmentObject(cdvm)
     }
 }
 #endif

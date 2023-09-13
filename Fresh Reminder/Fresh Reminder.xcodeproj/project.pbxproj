@@ -26,6 +26,7 @@
 		2DCB1E162A9B649A009D7E80 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB1E152A9B649A009D7E80 /* UserSettings.swift */; };
 		794F2CD92AAFD4C20023FA34 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CD72AAFD4C20023FA34 /* Model.xcdatamodeld */; };
 		794F2CDB2AAFD7130023FA34 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CDA2AAFD7130023FA34 /* Persistence.swift */; };
+		794F2CDD2AB18D6F0023FA34 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CDC2AB18D6F0023FA34 /* CoreDataViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		2DCB1E152A9B649A009D7E80 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		794F2CD82AAFD4C20023FA34 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		794F2CDA2AAFD7130023FA34 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		794F2CDC2AB18D6F0023FA34 /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		2D6133D72A82314B008EEC3D = {
 			isa = PBXGroup;
 			children = (
+				794F2CDC2AB18D6F0023FA34 /* CoreDataViewModel.swift */,
 				2D6133E22A82314B008EEC3D /* Fresh Reminder */,
 				2D6133E12A82314B008EEC3D /* Products */,
 			);
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D81E6422A88D3B5007CA724 /* FridgeItem.swift in Sources */,
+				794F2CDD2AB18D6F0023FA34 /* CoreDataViewModel.swift in Sources */,
 				2D81E6472A89FB95007CA724 /* CalendarDates.swift in Sources */,
 				794F2CDB2AAFD7130023FA34 /* Persistence.swift in Sources */,
 				2D81E6752A9B1F54007CA724 /* NewItemView.swift in Sources */,
