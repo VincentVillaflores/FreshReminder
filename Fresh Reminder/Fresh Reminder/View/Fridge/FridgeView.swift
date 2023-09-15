@@ -49,7 +49,11 @@ struct FridgeView: View {
                                 ForEach(categoryItems) { item in
                                     ItemSheet(item: Binding.constant(item), sectionList: $sectionList)
                                 }
-                                .onDelete(perform: removeItem)
+                                .onDelete(perform: { indexSet in
+                                    for index in indexSet {
+                                        cdvm.deleteProduct(categoryItems[index])
+                                    }
+                                })
                             }
                         }
                         ListSpacer()
@@ -58,21 +62,6 @@ struct FridgeView: View {
                 
                 // Menu button to navigate to manual item input / camera input
                 FloatingButton(sectionList: $sectionList)
-            }
-        }
-    }
-    
-    func removeItem(at offsets:IndexSet){
-        var flattenedProducts: [Product] = []
-        for category in uniqueCategories {
-            flattenedProducts.append(contentsOf: cdvm.getProductsIn(category: category))
-        }
-
-        // Loop through offsets and delete corresponding products
-        for offset in offsets {
-            if offset < flattenedProducts.count {
-                let productToDelete = flattenedProducts[offset]
-                cdvm.deleteProduct(productToDelete)
             }
         }
     }
