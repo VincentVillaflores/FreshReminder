@@ -92,10 +92,7 @@ struct MockNewItemView: View {
     var sectionList = loadFridgeItems()
     
     var body: some View {
-        let cdvm = CoreDataViewModel(context: PersistenceController.preview.container.viewContext)
         NewItemView(sectionList: $sectionList)
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-            .environmentObject(cdvm)
     }
 }
 #endif

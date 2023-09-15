@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ItemSheet: View {
+    @EnvironmentObject var cdvm: CoreDataViewModel
+    
     @Binding
     var item: Product
     
@@ -61,32 +63,30 @@ struct ItemSheet: View {
                     
                     // Functions to adjust expiry of item
                     Button {
-                        //item.timeTillExpiration = max(item.timeTillExpiration + daysToSeconds(days: -1), 0)
+                        cdvm.addDaysToExpirationDate(days: -1, product: item)
                     } label: {Text("-1 Day")}
                         .padding(.bottom)
                     Button {
-                        //item.timeTillExpiration = max(item.timeTillExpiration + daysToSeconds(days: 1), 0)
+                        cdvm.addDaysToExpirationDate(days: 1, product: item)
                     } label: {Text("+1 Day")}
                         .padding(.bottom)
                     Button {
-                        //item.timeTillExpiration = max(item.timeTillExpiration + daysToSeconds(days: -7), 0)
+                        cdvm.addDaysToExpirationDate(days: -7, product: item)
                     } label: {Text("-1 Week")}
                         .padding(.bottom)
                     Button {
-                        //item.timeTillExpiration = max(item.timeTillExpiration + daysToSeconds(days: 7), 0)
+                        cdvm.addDaysToExpirationDate(days: 7, product: item)
                     } label: {Text("+1 Week")}
                         .padding(.bottom)
                 }.padding().background(.regularMaterial).cornerRadius(10)
                 
                 // Eat (remove item) button
                 Button {
-                    // Remove occurrence of item with same UUID in any item category list through filtering
-                    for (index, section) in sectionList.enumerated() {
-                        sectionList[index].itemList = section.itemList.filter(){$0.id != item.id}
-                    }
-                    
                     // Close modal view
                     isPresented = false
+                    
+                    cdvm.deleteProduct(item)
+                    
                 } label: {Text("Eat")
                         .foregroundColor(.white)
                         .frame(width: 106, height: 34)

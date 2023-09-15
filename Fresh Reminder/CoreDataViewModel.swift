@@ -12,6 +12,64 @@ class CoreDataViewModel: ObservableObject{
     private var context: NSManagedObjectContext
     @Published var globalUser: User?
     @Published var products: [Product] = []
+    @Published var fruitsVegReminder: Int32? {
+        didSet{
+            updatePreference(\.fruitVegPreference, with: fruitsVegReminder ?? 1)
+        }
+    }
+    @Published var meatReminder: Int32? {
+        didSet{
+            updatePreference(\.meatPreference, with: meatReminder ?? 1)
+        }
+    }
+    @Published var seafoodReminder: Int32? {
+        didSet{
+            updatePreference(\.seafoodPreference, with: seafoodReminder ?? 1)
+        }
+    }
+    @Published var dairyReminder: Int32? {
+        didSet{
+            updatePreference(\.dairyPreference, with: dairyReminder ?? 1)
+        }
+    }
+    @Published var grainReminder: Int32? {
+        didSet{
+            updatePreference(\.grainPreference, with: grainReminder ?? 1)
+        }
+    }
+    @Published var mixedReminder: Int32? {
+        didSet{
+            updatePreference(\.mixedPreference, with: mixedReminder ?? 1)
+        }
+    }
+    @Published var miscReminder: Int32? {
+        didSet{
+            updatePreference(\.miscPreference, with: miscReminder ?? 1)
+        }
+    }
+    
+    func updatePreference(_ keyPath: ReferenceWritableKeyPath<NotificationPreferences, Int32>, with value: Int32) {
+        guard let user = getUser() else {
+            print("User is not initialized")
+            return
+        }
+        user.notification?[keyPath: keyPath] = value
+        saveContext()
+    }
+    
+    func refreshProducts() {
+        self.products = getAllProducts()
+    }
+    
+    func saveContext(){
+        do {
+            try context.save()
+            refreshProducts()
+        } catch {
+            print("Failed to delete products: \(error)")
+            print(error.localizedDescription)
+        }
+    }
     
     init(context: NSManagedObjectContext) {
         self.context = context
@@ -19,11 +77,10 @@ class CoreDataViewModel: ObservableObject{
     
     func getUser() -> User?{
         if let user = globalUser {
-                return user
+            return user
         }
         
-        let fetchRequest = NSFetchRequest<User>(entityName: "User")
-
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         do {
             let users = try context.fetch(fetchRequest)
             return users.first
@@ -38,11 +95,26 @@ class CoreDataViewModel: ObservableObject{
         if getUser() == nil{
             let newUser = User(context: context)
             globalUser = newUser
-            do {
-                try context.save()
-            } catch {
-                print("Error saving: \(error)")
-            }
+            let notification = NotificationPreferences(context: context)
+            notification.dairyPreference = 3
+            notification.fruitVegPreference = 3
+            notification.grainPreference = 3
+            notification.meatPreference = 3
+            notification.miscPreference = 3
+            notification.mixedPreference = 3
+            notification.seafoodPreference = 3
+            newUser.notification = notification
+            saveContext()
+        }
+        else {
+            self.globalUser = self.getUser()
+            self.dairyReminder = self.globalUser!.notification!.dairyPreference
+            self.fruitsVegReminder = self.globalUser!.notification!.fruitVegPreference
+            self.grainReminder = self.globalUser!.notification!.grainPreference
+            self.meatReminder = self.globalUser!.notification!.meatPreference
+            self.miscReminder = self.globalUser!.notification!.miscPreference
+            self.mixedReminder = self.globalUser!.notification!.mixedPreference
+            self.seafoodReminder = self.globalUser!.notification!.miscPreference
         }
     }
     
@@ -95,10 +167,6 @@ class CoreDataViewModel: ObservableObject{
         return expiringProducts
     }
     
-    func refreshProducts() {
-        self.products = getAllProducts()
-    }
-    
     func addProduct(name: String, category: String, dateBought:Date, expiryDays:Int){
         let newItem = Product(context: context)
         newItem.id = UUID()
@@ -109,25 +177,20 @@ class CoreDataViewModel: ObservableObject{
         newItem.expirationDate = expiryDate
         newItem.user = globalUser
         
-        do {
-            try context.save()
-            refreshProducts()
-        } catch {
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
+        saveContext()
     }
     
     func deleteProduct(_ productToDelete: Product) {
         context.delete(productToDelete)
         
-        do {
-            try context.save()
-            refreshProducts()
-        } catch {
-            print("Failed to delete products: \(error)")
-        }
+        saveContext()
+    }
+    
+    func addDaysToExpirationDate(days: Double, product: Product){
+        let secondsInADay = 86400
+        product.expirationDate?.addTimeInterval(Double(secondsInADay)*days)
+        
+        saveContext()
     }
     
 }

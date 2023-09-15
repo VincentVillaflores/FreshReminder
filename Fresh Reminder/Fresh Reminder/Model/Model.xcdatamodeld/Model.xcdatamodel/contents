@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Notification" representedClassName="Notification" syncable="YES" codeGenerationType="class">
+    <entity name="NotificationPreferences" representedClassName="NotificationPreferences" syncable="YES" codeGenerationType="class">
+        <attribute name="dairyPreference" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fruitVegPreference" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="grainPreference" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="preferencs" optional="YES" attributeType="String"/>
+        <attribute name="meatPreference" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="miscPreference" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mixedPreference" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="seafoodPreference" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="notification" inverseEntity="User"/>
     </entity>
     <entity name="Product" representedClassName="Product" syncable="YES" codeGenerationType="class">
@@ -18,7 +24,7 @@
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="notification" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Notification" inverseName="user" inverseEntity="Notification"/>
+        <relationship name="notification" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="NotificationPreferences" inverseName="user" inverseEntity="NotificationPreferences"/>
         <relationship name="products" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Product" inverseName="user" inverseEntity="Product"/>
     </entity>
 </model>

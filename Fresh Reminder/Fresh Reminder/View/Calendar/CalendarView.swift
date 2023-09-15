@@ -39,8 +39,7 @@ struct CalendarView: View {
         
         VStack {
             Text("").onAppear() {
-                cdvm.refreshProducts()
-            }
+                cdvm.refreshProducts()            }
             // Top bar containing month name and arrows
             HStack {
                 Text(verbatim: "\(getMonthName(month: monthInt, calendar: calendar)), \(calendar.component(.year, from: monthDate))")
@@ -97,9 +96,7 @@ struct MockCalendarView: View {
     var sectionList = loadFridgeItems()
     
     var body: some View {
-        let cdvm = CoreDataViewModel(context: PersistenceController.preview.container.viewContext)
         CalendarView(sectionList: $sectionList)
-            .environmentObject(cdvm)
     }
 }
 #endif
