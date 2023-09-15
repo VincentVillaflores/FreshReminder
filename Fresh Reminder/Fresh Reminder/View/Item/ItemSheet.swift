@@ -27,9 +27,9 @@ struct ItemSheet: View {
         } label: {
             HStack{
                 VStack(alignment: .leading) {
-                    Text(item.name!)
+                    Text(item.name ?? "")
                     if (displayDate) {
-                        Text("Expiry: \(formatDate(date: item.expirationDate!))")
+                        Text("Expiry: \(formatDate(date: item.expirationDate ?? Date()))")
                     }
                     
                 }.foregroundColor(.primary)
@@ -51,7 +51,7 @@ struct ItemSheet: View {
                 }
                 Spacer()
                 
-                Text(item.name!)
+                Text(item.name ?? "")
                     .font(.largeTitle)
                     .padding()
                 
@@ -85,8 +85,10 @@ struct ItemSheet: View {
                     // Close modal view
                     isPresented = false
                     
-                    cdvm.deleteProduct(item)
-                    
+                    // Add a delay before deletion
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // 0.5 seconds delay
+                        cdvm.deleteProduct(item)
+                    }
                 } label: {Text("Eat")
                         .foregroundColor(.white)
                         .frame(width: 106, height: 34)
