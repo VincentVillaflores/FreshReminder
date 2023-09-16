@@ -18,9 +18,6 @@ struct FridgeView: View {
         return cdvm.uniqueCategories()
     }
     
-    @Binding
-    var sectionList: [FridgeSection]
-    
     @State
     var searchString = ""
 
@@ -47,7 +44,7 @@ struct FridgeView: View {
                             // Define the items that belong to this category
                             Section(header: Text(category)){
                                 ForEach(categoryItems) { item in
-                                    ItemSheet(item: Binding.constant(item), sectionList: $sectionList)
+                                    ItemSheet(item: Binding.constant(item))
                                 }
                                 .onDelete(perform: { indexSet in
                                     for index in indexSet {
@@ -61,7 +58,7 @@ struct FridgeView: View {
                 }
                 
                 // Menu button to navigate to manual item input / camera input
-                FloatingButton(sectionList: $sectionList)
+                FloatingButton()
             }
         }
     }
@@ -83,11 +80,8 @@ struct MockFridgeView: View {
         cdvm.setUp()
     }
     
-    @State
-    var sectionList = loadFridgeItems()
-    
     var body: some View {
-        FridgeView(sectionList: $sectionList)
+        FridgeView()
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
             .environmentObject(cdvm)
     }

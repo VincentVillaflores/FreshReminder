@@ -20,8 +20,6 @@ struct FloatingButtonStyle: ButtonStyle {
 }
 
 struct FloatingButton: View {
-    @Binding
-    var sectionList: [FridgeSection]
     
     var body: some View {
         VStack{
@@ -30,7 +28,7 @@ struct FloatingButton: View {
                 Spacer()
                 Menu {
                     NavigationLink {
-                        NewItemView(sectionList: $sectionList)
+                        NewItemView()
                     } label: {
                         Text("New Item")
                     }
@@ -60,11 +58,9 @@ struct FloatingButton_Previews: PreviewProvider {
 }
 
 struct MockFloatingButton: View {
-    @State
-    var sectionList = loadFridgeItems()
     
     var body: some View {
-        FloatingButton(sectionList: $sectionList)
+        FloatingButton()
     }
 }
 #endif

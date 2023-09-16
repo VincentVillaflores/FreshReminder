@@ -13,9 +13,6 @@ let calendar = Calendar.current
 struct CalendarView: View {
     @EnvironmentObject var cdvm: CoreDataViewModel
     
-    @Binding
-    var sectionList: [FridgeSection]
-    
     @State
     var search = ""
     
@@ -71,7 +68,7 @@ struct CalendarView: View {
                 if !expiringProducts.isEmpty {
                     Section("Expiring on \(formatDate(date: selectedDate))") {
                         ForEach(expiringProducts) { item in
-                            ItemSheet(item: Binding.constant(item), sectionList: $sectionList, displayDate: false)
+                            ItemSheet(item: Binding.constant(item), displayDate: false)
                         }
                     }
                 }
@@ -100,11 +97,8 @@ struct MockCalendarView: View {
         cdvm.setUp()
     }
     
-    @State
-    var sectionList = loadFridgeItems()
-    
     var body: some View {
-        CalendarView(sectionList: $sectionList)
+        CalendarView()
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
             .environmentObject(cdvm)
     }

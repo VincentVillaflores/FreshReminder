@@ -13,9 +13,6 @@ struct ItemSheet: View {
     @Binding
     var item: Product
     
-    @Binding
-    var sectionList: [FridgeSection]
-    
     var displayDate = true
     
     @State
@@ -121,11 +118,8 @@ struct MockItemSheet: View {
     @State
     var item = Product()
     
-    @State
-    var sectionList = loadFridgeItems()
-    
     var body: some View {
-        ItemSheet(item: $item, sectionList: $sectionList)
+        ItemSheet(item: $item)
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
             .environmentObject(cdvm)
     }

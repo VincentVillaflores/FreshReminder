@@ -80,8 +80,6 @@ struct SettingsView: View {
         )
     }
     
-    @EnvironmentObject private var userSettings: UserSettings
-    
     let reminderRange = 1...31
     
     var body: some View {
@@ -128,9 +126,6 @@ struct MockSettingsView: View {
         SettingsView()
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
             .environmentObject(cdvm)
-            .environmentObject(
-                UserSettings(reminderFV: 1, reminderMeat: 1, reminderSeafood: 1, reminderDairy: 1, reminderGrain: 1, reminderMixed: 1, reminderMisc: 1)
-            )
     }
 }
 #endif

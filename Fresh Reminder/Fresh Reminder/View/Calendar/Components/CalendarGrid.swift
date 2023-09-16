@@ -128,8 +128,14 @@ struct CalendarGrid_Previews: PreviewProvider {
 }
 
 struct MockCalendarGrid: View {
-    @State
-    var sectionList = loadFridgeItems()
+    let persistenceController = PersistenceController.shared
+    @StateObject private var cdvm: CoreDataViewModel
+    init(){
+        let context = persistenceController.container.viewContext
+        _cdvm = StateObject(wrappedValue: CoreDataViewModel(context: context))
+        cdvm.setUp()
+    }
+    
     @State
     var selectedDate = getStartOfDay(date: Date.now, calendar: Calendar.current)
     
@@ -143,13 +149,7 @@ struct MockCalendarGrid: View {
     var dateArray: [DateColor] { generateDateArray(date: monthDate, calendar: Calendar.current) }
     
     var dateSet: Set<Date> {
-        var returnSet: Set<Date> = []
-        for section in sectionList {
-            for item in section.itemList {
-                returnSet.insert(item.expirationDate)
-            }
-        }
-        return returnSet
+        return cdvm.uniqueDates()
     }
     
     var body: some View {

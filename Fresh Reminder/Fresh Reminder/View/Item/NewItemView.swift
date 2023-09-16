@@ -27,9 +27,6 @@ struct NewItemView: View {
     @State
     var expiryDays = 1
     
-    @Binding
-    var sectionList: [FridgeSection]
-    
     var body: some View {
         Form {
             Section{} header: {
@@ -60,10 +57,6 @@ struct NewItemView: View {
                 Spacer()
                 
                 Button {
-                    // Create category if doesn't exist
-                    if !sectionList.contains(where: {$0.itemCategory == itemCategory}) {
-                        sectionList.append(FridgeSection(itemCategory: itemCategory, itemList: []))
-                    }
                     
                     // Add item to existing category
                     cdvm.addProduct(name: itemName, category: itemCategory.description, dateBought: dateBought, expiryDays: expiryDays)
@@ -96,11 +89,8 @@ struct MockNewItemView: View {
         cdvm.setUp()
     }
     
-    @State
-    var sectionList = loadFridgeItems()
-    
     var body: some View {
-        NewItemView(sectionList: $sectionList)
+        NewItemView()
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
             .environmentObject(cdvm)
     }

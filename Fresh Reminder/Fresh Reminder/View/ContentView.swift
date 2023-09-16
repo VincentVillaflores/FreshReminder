@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State
-    var sectionList = loadFridgeItems()
     
     var body: some View {
         TabView {
-            FridgeView(sectionList: $sectionList)
+            FridgeView()
                 .tabItem {
                     Label("Fridge", systemImage: "refrigerator.fill")
                 }
-            CalendarView(sectionList: $sectionList)
+            CalendarView()
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
                 }
@@ -45,16 +43,10 @@ struct MockContentView: View {
         cdvm.setUp()
     }
     
-    @State
-    var sectionList = loadFridgeItems()
-    
     var body: some View {
         ContentView()
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
             .environmentObject(cdvm)
-            .environmentObject(
-                UserSettings(reminderFV: 1, reminderMeat: 1, reminderSeafood: 1, reminderDairy: 1, reminderGrain: 1, reminderMixed: 1, reminderMisc: 1)
-            )
     }
 }
 #endif
