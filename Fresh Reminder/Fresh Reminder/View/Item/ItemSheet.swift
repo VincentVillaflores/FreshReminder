@@ -110,6 +110,14 @@ struct ItemSheet_Previews: PreviewProvider {
 }
 
 struct MockItemSheet: View {
+    let persistenceController = PersistenceController.shared
+    @StateObject private var cdvm: CoreDataViewModel
+    init(){
+        let context = persistenceController.container.viewContext
+        _cdvm = StateObject(wrappedValue: CoreDataViewModel(context: context))
+        cdvm.setUp()
+    }
+
     @State
     var item = Product()
     
@@ -118,6 +126,8 @@ struct MockItemSheet: View {
     
     var body: some View {
         ItemSheet(item: $item, sectionList: $sectionList)
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            .environmentObject(cdvm)
     }
 }
 #endif

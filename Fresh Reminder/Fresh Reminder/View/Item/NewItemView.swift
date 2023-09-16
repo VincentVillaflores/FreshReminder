@@ -88,11 +88,21 @@ struct NewItemView_Previews: PreviewProvider {
 }
 
 struct MockNewItemView: View {
+    let persistenceController = PersistenceController.shared
+    @StateObject private var cdvm: CoreDataViewModel
+    init(){
+        let context = persistenceController.container.viewContext
+        _cdvm = StateObject(wrappedValue: CoreDataViewModel(context: context))
+        cdvm.setUp()
+    }
+    
     @State
     var sectionList = loadFridgeItems()
     
     var body: some View {
         NewItemView(sectionList: $sectionList)
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            .environmentObject(cdvm)
     }
 }
 #endif
