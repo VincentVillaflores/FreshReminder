@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D08D3BF2AB6AE8500921648 /* FoodieAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08D3BE2AB6AE8500921648 /* FoodieAPIModel.swift */; };
+		2D08D3C12AB6B2EA00921648 /* ItemSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08D3C02AB6B2EA00921648 /* ItemSearchView.swift */; };
 		2D6133E42A82314B008EEC3D /* Fresh_ReminderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6133E32A82314B008EEC3D /* Fresh_ReminderApp.swift */; };
 		2D6133E62A82314B008EEC3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6133E52A82314B008EEC3D /* ContentView.swift */; };
 		2D6133E82A82314D008EEC3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D6133E72A82314D008EEC3D /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D08D3BE2AB6AE8500921648 /* FoodieAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieAPIModel.swift; sourceTree = "<group>"; };
+		2D08D3C02AB6B2EA00921648 /* ItemSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearchView.swift; sourceTree = "<group>"; };
 		2D6133E02A82314B008EEC3D /* Fresh Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fresh Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D6133E32A82314B008EEC3D /* Fresh_ReminderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fresh_ReminderApp.swift; sourceTree = "<group>"; };
 		2D6133E52A82314B008EEC3D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			children = (
 				2D81E66F2A9ADE5B007CA724 /* ItemSheet.swift */,
 				2D81E6742A9B1F54007CA724 /* NewItemView.swift */,
+				2D08D3C02AB6B2EA00921648 /* ItemSearchView.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				2D81E6412A88D3B4007CA724 /* FridgeItem.swift */,
 				794F2CD72AAFD4C20023FA34 /* Model.xcdatamodeld */,
 				794F2CDA2AAFD7130023FA34 /* Persistence.swift */,
+				2D08D3BE2AB6AE8500921648 /* FoodieAPIModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,7 +290,9 @@
 				2D81E63A2A823328007CA724 /* FridgeView.swift in Sources */,
 				2D81E66B2A935206007CA724 /* SearchBar.swift in Sources */,
 				2DCB1E162A9B649A009D7E80 /* UserSettings.swift in Sources */,
+				2D08D3BF2AB6AE8500921648 /* FoodieAPIModel.swift in Sources */,
 				2D81E6402A823C5D007CA724 /* FloatingButton.swift in Sources */,
+				2D08D3C12AB6B2EA00921648 /* ItemSearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
