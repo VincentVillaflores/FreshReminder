@@ -7,6 +7,8 @@ Fresh Reminder App Prototype
 Fresh Reminder is an app which tracks the expiration dates of foods which you have purchased in recent shopping trips, so that you can be reminded (prior to them going off/expiring). This reduces food waste, along with increasing food handling safety.
 Future versions of the project will contain machine learning integration, in order to classify images of your shopping trips, so that you will need to enter little/no information and the app can handle the majority of the heavy lifting.
 
+MiroBoard - https://miro.com/app/board/uXjVMo2Qf70=/?share_link_id=568492534675
+
 ## Project Structure
 Philosophy can be found in report, and in conjunction with this philosophy the following structure was adopted:
 ```
