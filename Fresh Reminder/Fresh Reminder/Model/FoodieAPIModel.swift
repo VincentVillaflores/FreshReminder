@@ -49,12 +49,20 @@ class FoodieViewModel: ObservableObject {
     var searchResults: [FoodieSearch] = []
     
     @Published
+    var searchLoading: Bool = false
+    
+    @Published
     var foodGuide: FoodieGuide? = nil
+    
+    @Published
+    var guideLoading: Bool = false
     
     // represents the subscription to a service
     private var cancellables = Set<AnyCancellable>()
     
     func fetchSearchResults(foodQuery: String) {
+        self.searchLoading = true
+        
         let url = URL(string: "\(baseURL)/search?q=\(foodQuery)")!
         
         URLSession.shared.dataTaskPublisher(for: url)
@@ -63,15 +71,19 @@ class FoodieViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
+                    self.searchLoading = false
                     print("Data fetching error: \(error)")
                 }
             }, receiveValue: { data in
+                self.searchLoading = false
                 self.searchResults = data
             })
             .store(in: &cancellables)
     }
     
     func fetchGuide(guideID: Int32) {
+        self.guideLoading = true
+        
         let url = URL(string: "\(baseURL)/guides/\(guideID)")!
         
         URLSession.shared.dataTaskPublisher(for: url)
@@ -80,9 +92,11 @@ class FoodieViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
+                    self.guideLoading = false
                     print("Data fetching error: \(error)")
                 }
             }, receiveValue: { data in
+                self.guideLoading = false
                 self.foodGuide = data
             })
             .store(in: &cancellables)

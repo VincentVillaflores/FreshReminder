@@ -25,6 +25,9 @@ struct NewItemView: View {
     var itemCategory: ItemCategory = .Misc
     
     @State
+    var itemLocation: FoodLocation = .Pantry
+    
+    @State
     var expiryDays = 1
     
     var body: some View {
@@ -47,6 +50,12 @@ struct NewItemView: View {
                     Text("Grain").tag(ItemCategory.Grain)
                     Text("Mixed").tag(ItemCategory.Mixed)
                 }
+                
+                Picker("Storage Location", selection: $itemLocation) {
+                    Text(FoodLocation.Pantry.rawValue).tag(FoodLocation.Pantry)
+                    Text(FoodLocation.Refrigerator.rawValue).tag(FoodLocation.Refrigerator)
+                    Text(FoodLocation.Freezer.rawValue).tag(FoodLocation.Freezer)
+                }
             }
             
             Section(header: Text("Item Expiry")) {
@@ -59,7 +68,7 @@ struct NewItemView: View {
                 Button {
                     
                     // Add item to existing category
-                    cdvm.addProduct(name: itemName, category: itemCategory.description, dateBought: dateBought, expiryDays: expiryDays)
+                    cdvm.addProduct(name: itemName, category: itemCategory.description, dateBought: dateBought, expiryDays: expiryDays, location: itemLocation.rawValue)
                     dismiss()
                     
                     

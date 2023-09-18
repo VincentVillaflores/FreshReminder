@@ -13,12 +13,18 @@ struct ItemSearchView: View {
     
     var body: some View {
         let searchResults = viewModel.searchResults
+        let guideLoading = viewModel.guideLoading
+        
         List {
             Button("Fetch apples") {
                 viewModel.fetchSearchResults(foodQuery: "Apple")
             }
             
-            
+            if guideLoading {
+                Section(header: Text("Loading Guide")) {
+                    ProgressView()
+                }
+            }
             if let foodGuide = viewModel.foodGuide {
                 Section(header: Text("Name: \(foodGuide.name)")) {
                     ForEach(foodGuide.methods, id: \.location.rawValue) { method in
