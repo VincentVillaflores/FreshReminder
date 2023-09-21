@@ -31,53 +31,50 @@ struct NewItemView: View {
     var expiryDays = 1
     
     var body: some View {
-        Form {
-            Section{} header: {
-                Text(verbatim: "New Item")
-                    .font(.largeTitle)
-                    .foregroundColor(.primary)
-            }.textCase(nil)
-            
-            Section(header: Text("Item Information")) {
-                TextField("Name", text: $itemName)
+        NavigationStack {
+            Form {
                 
-                Picker("Category", selection: $itemCategory) {
-                    Text("Misc").tag(ItemCategory.Misc)
-                    Text("Fruit and Vegetables").tag(ItemCategory.FruitVeg)
-                    Text("Meat").tag(ItemCategory.Meat)
-                    Text("Seafood").tag(ItemCategory.Seafood)
-                    Text("Dairy").tag(ItemCategory.Dairy)
-                    Text("Grain").tag(ItemCategory.Grain)
-                    Text("Mixed").tag(ItemCategory.Mixed)
+                Section(header: Text("Item Information")) {
+                    TextField("Name", text: $itemName)
+                    
+                    Picker("Category", selection: $itemCategory) {
+                        Text("Misc").tag(ItemCategory.Misc)
+                        Text("Fruit and Vegetables").tag(ItemCategory.FruitVeg)
+                        Text("Meat").tag(ItemCategory.Meat)
+                        Text("Seafood").tag(ItemCategory.Seafood)
+                        Text("Dairy").tag(ItemCategory.Dairy)
+                        Text("Grain").tag(ItemCategory.Grain)
+                        Text("Mixed").tag(ItemCategory.Mixed)
+                    }
+                    
+                    Picker("Storage Location", selection: $itemLocation) {
+                        Text(FoodLocation.Pantry.rawValue).tag(FoodLocation.Pantry)
+                        Text(FoodLocation.Refrigerator.rawValue).tag(FoodLocation.Refrigerator)
+                        Text(FoodLocation.Freezer.rawValue).tag(FoodLocation.Freezer)
+                    }
                 }
                 
-                Picker("Storage Location", selection: $itemLocation) {
-                    Text(FoodLocation.Pantry.rawValue).tag(FoodLocation.Pantry)
-                    Text(FoodLocation.Refrigerator.rawValue).tag(FoodLocation.Refrigerator)
-                    Text(FoodLocation.Freezer.rawValue).tag(FoodLocation.Freezer)
-                }
-            }
-            
-            Section(header: Text("Item Expiry")) {
-                Stepper("Expires in \(expiryDays) day" + (expiryDays == 1 ? "" : "s"), value: $expiryDays, in: expiryRange)
-            }
-            
-            HStack {
-                Spacer()
-                
-                Button {
-                    
-                    // Add item to existing category
-                    cdvm.addProduct(name: itemName, category: itemCategory.description, dateBought: dateBought, expiryDays: expiryDays, location: itemLocation.rawValue)
-                    dismiss()
-                    
-                    
-                } label: {
-                    Text("Submit")
+                Section(header: Text("Item Expiry")) {
+                    Stepper("Expires in \(expiryDays) day" + (expiryDays == 1 ? "" : "s"), value: $expiryDays, in: expiryRange)
                 }
                 
-                Spacer()
-            }
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        
+                        // Add item to existing category
+                        cdvm.addProduct(name: itemName, category: itemCategory.description, dateBought: dateBought, expiryDays: expiryDays, location: itemLocation.rawValue)
+                        dismiss()
+                        
+                        
+                    } label: {
+                        Text("Submit")
+                    }
+                    
+                    Spacer()
+                }
+            }.navigationTitle("New Item")
         }
     }
 }

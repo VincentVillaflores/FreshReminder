@@ -13,53 +13,40 @@ struct FridgeView: View {
     var productsList: [Product] {
         return cdvm.products
     }
-
+    
     var uniqueCategories: [String] {
         return cdvm.uniqueCategories()
     }
     
     @State
     var searchString = ""
-
+    
     var body: some View {
         NavigationStack{
-            ZStack{
-                VStack{
+            List {
+                ForEach(Array(uniqueCategories), id: \.self) { category in
+                    var categoryItems: [Product] {
+                        return cdvm.getProductsIn(category: category)
+                    }
                     
-                    List {
-                        Section{} header: {
-                            Text(verbatim: "Fresh Reminder")
-                                .font(.largeTitle)
-                                .foregroundColor(.primary)
-                        }.textCase(nil)
-                        
-                        SearchBar(search: $searchString)
-                        
-                        
-                        ForEach(Array(uniqueCategories), id: \.self) { category in
-                            var categoryItems: [Product] {
-                                return cdvm.getProductsIn(category: category)
-                            }
-                            
-                            // Define the items that belong to this category
-                            Section(header: Text(category)){
-                                ForEach(categoryItems) { item in
-                                    ItemSheet(item: Binding.constant(item))
-                                }
-                                .onDelete(perform: { indexSet in
-                                    for index in indexSet {
-                                        cdvm.deleteProduct(categoryItems[index])
-                                    }
-                                })
-                            }
+                    // Define the items that belong to this category
+                    Section(header: Text(category)){
+                        ForEach(categoryItems) { item in
+                            ItemSheet(item: Binding.constant(item))
                         }
-                        ListSpacer()
+                        .onDelete(perform: { indexSet in
+                            for index in indexSet {
+                                cdvm.deleteProduct(categoryItems[index])
+                            }
+                        })
                     }
                 }
-                
-                // Menu button to navigate to manual item input / camera input
-                FloatingButton()
             }
+            .toolbar {
+                MenuButton()
+            }
+            .navigationTitle("Fresh Reminder")
+            .searchable(text: $searchString)
         }
     }
 }

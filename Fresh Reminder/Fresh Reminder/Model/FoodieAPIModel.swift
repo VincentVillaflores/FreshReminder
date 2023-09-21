@@ -8,16 +8,10 @@
 import Foundation
 import Combine
 
-enum FoodLocation: String, Codable, CustomStringConvertible {
-    case Pantry, Refrigerator, Freezer
-    
-    var description : String {
-        switch self {
-        case .Pantry: return "Pantry"
-        case .Refrigerator: return "Refrigerator"
-        case .Freezer: return "Freezer"
-        }
-    }
+enum FoodLocation: String, Codable {
+    case Pantry
+    case Refrigerator
+    case Freezer
 }
 
 struct FoodieSearch: Decodable {
@@ -40,6 +34,17 @@ struct FoodieGuide: Decodable {
 
 // The ObservableObject is a protocol provided by SwiftUI's Combine framework
 class FoodieViewModel: ObservableObject {
+    enum State {
+            case idle
+            case loading
+            case failed(Error)
+            case loadedSearch([FoodieSearch])
+            case loadedGuide(FoodieGuide)
+    }
+    
+    @Published
+    var state: State = .idle
+    
     private let baseURL = "https://shelf-life.onrender.com"
     
     // this property is published and watched by the content view
@@ -49,21 +54,15 @@ class FoodieViewModel: ObservableObject {
     var searchResults: [FoodieSearch] = []
     
     @Published
-    var searchLoading: Bool = false
-    
-    @Published
     var foodGuide: FoodieGuide? = nil
-    
-    @Published
-    var guideLoading: Bool = false
     
     // represents the subscription to a service
     private var cancellables = Set<AnyCancellable>()
     
     func fetchSearchResults(foodQuery: String) {
-        self.searchLoading = true
+        state = .loading
         
-        let url = URL(string: "\(baseURL)/search?q=\(foodQuery)")!
+        let url = URL(string: "\(baseURL)/search?q=\(foodQuery.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? "")")!
         
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
@@ -71,18 +70,16 @@ class FoodieViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
-                    self.searchLoading = false
-                    print("Data fetching error: \(error)")
+                    self.state = .failed(error)
                 }
             }, receiveValue: { data in
-                self.searchLoading = false
                 self.searchResults = data
             })
             .store(in: &cancellables)
     }
     
     func fetchGuide(guideID: Int32) {
-        self.guideLoading = true
+        state = .loading
         
         let url = URL(string: "\(baseURL)/guides/\(guideID)")!
         
@@ -92,12 +89,12 @@ class FoodieViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
-                    self.guideLoading = false
-                    print("Data fetching error: \(error)")
+                    self.state = .failed(error)
                 }
             }, receiveValue: { data in
-                self.guideLoading = false
-                self.foodGuide = data
+                self.state = .loadedGuide(data)
+                print("Got \(guideID)")
+                print(data.name)
             })
             .store(in: &cancellables)
     }
