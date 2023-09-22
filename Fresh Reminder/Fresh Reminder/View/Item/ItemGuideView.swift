@@ -47,7 +47,7 @@ struct ItemGuideView: View {
                         Text( selectedMethod != nil
                               ? "Lasts: \(selectedMethod!.expiration)"
                               : "Please select a storage location"
-                        )
+                        ).bold(selectedMethod == nil)
                     }
                     Section(header: Text("Storage Tips")) {
                         DisclosureGroup(isExpanded: $showTips) {
@@ -60,6 +60,11 @@ struct ItemGuideView: View {
                         }
                     }
                 }
+                .toolbar {
+                    Button("Submit") {
+                        
+                    }.disabled(selectedMethod == nil)
+                }
                 .navigationTitle("Add Item")
             }
         }
@@ -68,6 +73,6 @@ struct ItemGuideView: View {
 
 struct ItemGuideView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemGuideView(guideID: 16458)
+        ItemGuideView(guideID: 16448)
     }
 }
