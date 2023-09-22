@@ -20,10 +20,18 @@ struct FoodieSearch: Decodable {
     var url: String
 }
 
-struct FoodieMethod: Decodable {
+struct FoodieMethod: Decodable, Hashable {
     var location: FoodLocation
     var expiration: String
     var expirationTime: Int32
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(location.rawValue)
+    }
+    
+    static func == (lhs: FoodieMethod, rhs: FoodieMethod) -> Bool {
+        return lhs.location.rawValue == rhs.location.rawValue && lhs.location.rawValue == rhs.location.rawValue
+    }
 }
 
 struct FoodieGuide: Decodable {
