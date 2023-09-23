@@ -38,7 +38,9 @@ struct FridgeView: View {
                     // Define the items that belong to this category
                     Section(header: Text(category)){
                         ForEach(categoryItems) { item in
-                            ItemSheet(item: Binding.constant(item))
+                            if isSearchItem(string: item.name ?? "", searchString: searchString) {
+                                ItemSheet(item: Binding.constant(item))
+                            }
                         }
                         .onDelete(perform: { indexSet in
                             for index in indexSet {
