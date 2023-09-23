@@ -40,7 +40,10 @@ struct ItemGuideView: View {
             case .loading:
                 ProgressView()
             case .failed(let error):
-                Text("\(error.localizedDescription)")
+                VStack {
+                    Text("\(error.localizedDescription)")
+                    Text("Please try again later.")
+                }
             case .loadedSearch(_):
                 EmptyView()
             case .loadedGuide(let foodGuide):
