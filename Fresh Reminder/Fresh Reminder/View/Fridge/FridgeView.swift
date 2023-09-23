@@ -13,53 +13,73 @@ struct FridgeView: View {
     var productsList: [Product] {
         return cdvm.products
     }
-
+    
     var uniqueCategories: [String] {
         return cdvm.uniqueCategories()
     }
     
     @State
     var searchString = ""
-
+    
+    @State
+    var path = NavigationPath()
+    
+    @State
+    var presentChoices = false
+    
     var body: some View {
-        NavigationStack{
-            ZStack{
-                VStack{
+        NavigationStack(path: $path) {
+            List {
+                ForEach(Array(uniqueCategories), id: \.self) { category in
+                    var categoryItems: [Product] {
+                        return cdvm.getProductsIn(category: category)
+                    }
                     
-                    List {
-                        Section{} header: {
-                            Text(verbatim: "Fresh Reminder")
-                                .font(.largeTitle)
-                                .foregroundColor(.primary)
-                        }.textCase(nil)
-                        
-                        SearchBar(search: $searchString)
-                        
-                        
-                        ForEach(Array(uniqueCategories), id: \.self) { category in
-                            var categoryItems: [Product] {
-                                return cdvm.getProductsIn(category: category)
-                            }
-                            
-                            // Define the items that belong to this category
-                            Section(header: Text(category)){
-                                ForEach(categoryItems) { item in
-                                    ItemSheet(item: Binding.constant(item))
-                                }
-                                .onDelete(perform: { indexSet in
-                                    for index in indexSet {
-                                        cdvm.deleteProduct(categoryItems[index])
-                                    }
-                                })
+                    // Define the items that belong to this category
+                    Section(header: Text(category)){
+                        ForEach(categoryItems) { item in
+                            if isSearchItem(string: item.name ?? "", searchString: searchString) {
+                                ItemSheet(item: Binding.constant(item))
                             }
                         }
-                        ListSpacer()
+                        .onDelete(perform: { indexSet in
+                            for index in indexSet {
+                                cdvm.deleteProduct(categoryItems[index])
+                            }
+                        })
                     }
                 }
-                
-                // Menu button to navigate to manual item input / camera input
-                FloatingButton()
             }
+            .toolbar {
+                Button {
+                    presentChoices = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+            .confirmationDialog("New Item", isPresented: $presentChoices) {
+                NavigationLink("Search for Item", value: Destinations.searchItem)
+                NavigationLink("Take Photo of Item", value: Destinations.photoItem)
+            }
+            .navigationDestination(for: Destinations.self) { destination in
+                switch destination {
+                
+                case .searchItem:
+                    NewItemView()
+                    
+                case .photoItem:
+                    // TODO: Replace with camera view
+                    NewItemView()
+                }
+            }
+            .navigationDestination(for: String.self) { textValue in
+                ItemSearchView(itemSearch: textValue)
+            }
+            .navigationDestination(for: Int32.self) { numberValue in
+                ItemGuideView(guideID: numberValue, path: $path)
+            }
+            .navigationTitle("Fresh Reminder")
+            .searchable(text: $searchString)
         }
     }
 }

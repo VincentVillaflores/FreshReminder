@@ -167,7 +167,7 @@ class CoreDataViewModel: ObservableObject{
         return expiringProducts
     }
     
-    func addProduct(name: String, category: String, dateBought:Date, expiryDays:Int){
+    func addProduct(name: String, category: String, dateBought:Date, expiryDays:Int, location: String) {
         let newItem = Product(context: context)
         newItem.id = UUID()
         newItem.name = name
@@ -176,6 +176,21 @@ class CoreDataViewModel: ObservableObject{
         let expiryDate = Calendar.current.date(byAdding: .day, value: expiryDays, to: dateBought)
         newItem.expirationDate = expiryDate
         newItem.user = globalUser
+        newItem.location = location
+        
+        saveContext()
+    }
+    
+    func addProduct(name: String, category: String, dateBought:Date, expirySeconds:Int32, location: String) {
+        let newItem = Product(context: context)
+        newItem.id = UUID()
+        newItem.name = name
+        newItem.category = category
+        newItem.dateBought = dateBought
+        let expiryDate = Calendar.current.date(byAdding: .second, value: Int(expirySeconds), to: dateBought)
+        newItem.expirationDate = expiryDate
+        newItem.user = globalUser
+        newItem.location = location
         
         saveContext()
     }

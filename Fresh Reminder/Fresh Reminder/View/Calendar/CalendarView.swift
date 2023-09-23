@@ -75,7 +75,6 @@ struct CalendarView: View {
                 else {
                     Section("Nothing expiring on \(formatDate(date: selectedDate))"){}
                 }
-                ListSpacer()
             }
         }
     }
