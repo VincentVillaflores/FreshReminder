@@ -1,8 +1,8 @@
 //
-//  FridgeItem.swift
+//  ItemCategory.swift
 //  Fresh Reminder
 //
-//  Created by Matthew Soulsby on 13/8/2023.
+//  Created by Matthew Soulsby on 23/9/2023.
 //
 
 import Foundation
@@ -27,18 +27,5 @@ enum ItemCategory: CustomStringConvertible {
         case .Mixed: return "Mixed"
         case .Misc: return "Miscellaneous"
         }
-    }
-}
-
-struct FridgeItem: Identifiable {
-    var id = UUID()
-    var itemName: String
-    var itemCategory: ItemCategory
-    var dateBought: Date
-    var timeTillExpiration: TimeInterval
-    
-    var expirationDate: Date {
-        let interval = DateInterval(start: dateBought, duration: timeTillExpiration)
-        return interval.end
     }
 }

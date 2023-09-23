@@ -11,46 +11,59 @@ struct ItemSearchView: View {
     @ObservedObject
     var viewModel = FoodieViewModel()
     
+    let itemSearch: String
+    
     var body: some View {
-        let searchResults = viewModel.searchResults
-        
-        List {
-            Button("Fetch apples") {
-                viewModel.fetchSearchResults(foodQuery: "Apple")
-            }
-            
-            if let foodGuide = viewModel.foodGuide {
-                Section(header: Text("Name: \(foodGuide.name)")) {
-                    ForEach(foodGuide.methods, id: \.location.rawValue) { method in
-                        Text("\(method.location.rawValue)")
-                        Text("\(method.expiration)")
-                        Text("\(method.expirationTime)")
-                    }
-                }
-            } else {
-                Text("Guide not available")
-            }
-            
-            if !searchResults.isEmpty {
-                ForEach(searchResults, id: \.id) { searchResult in
-                    Section(header: Text("Name: \(searchResult.name)")) {
-                        Button("Id: \(searchResult.id)") {
-                            viewModel.fetchGuide(guideID: searchResult.id)
+            switch viewModel.state {
+            case .idle:
+                ProgressView().onAppear {viewModel.fetchSearchResults(foodQuery: itemSearch)}
+            case .loading:
+                ProgressView()
+            case .failed(let error):
+                Text("\(error.localizedDescription)")
+            case .loadedGuide(_):
+                EmptyView()
+                
+            case .loadedSearch(let searchResults):
+                List {
+                    if !searchResults.isEmpty {
+                        ForEach(searchResults, id: \.id) { searchResult in
+                            NavigationLink(searchResult.name, value: searchResult.id)
                         }
-                        Text("URL: \(searchResult.url)")
+                    } else {
+                        Text("No matching items")
                     }
                 }
-            } else {
-                Text("No matching items")
+                .navigationTitle("Matching items")
             }
-        }.onAppear {
-            viewModel.fetchSearchResults(foodQuery: "BANANAS - RAW")
-        }
     }
 }
 
+#if DEBUG
 struct ItemSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemSearchView()
+        MockItemSearchView()
     }
 }
+
+struct MockItemSearchView: View {
+    let persistenceController = PersistenceController.shared
+    @StateObject private var cdvm: CoreDataViewModel
+    init(){
+        let context = persistenceController.container.viewContext
+        _cdvm = StateObject(wrappedValue: CoreDataViewModel(context: context))
+        cdvm.setUp()
+    }
+    
+    @State
+    var path = NavigationPath()
+    
+    var body: some View {
+        NavigationStack {
+            ItemSearchView(itemSearch: "Banana")
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(cdvm)
+        }
+    }
+}
+#endif

@@ -21,8 +21,14 @@ struct FridgeView: View {
     @State
     var searchString = ""
     
+    @State
+    var path = NavigationPath()
+    
+    @State
+    var presentChoices = false
+    
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $path) {
             List {
                 ForEach(Array(uniqueCategories), id: \.self) { category in
                     var categoryItems: [Product] {
@@ -43,7 +49,32 @@ struct FridgeView: View {
                 }
             }
             .toolbar {
-                MenuButton()
+                Button {
+                    presentChoices = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+            .confirmationDialog("New Item", isPresented: $presentChoices) {
+                NavigationLink("Search for Item", value: Destinations.searchItem)
+                NavigationLink("Take Photo of Item", value: Destinations.photoItem)
+            }
+            .navigationDestination(for: Destinations.self) { destination in
+                switch destination {
+                
+                case .searchItem:
+                    NewItemView()
+                    
+                case .photoItem:
+                    // TODO: Replace with camera view
+                    NewItemView()
+                }
+            }
+            .navigationDestination(for: String.self) { textValue in
+                ItemSearchView(itemSearch: textValue)
+            }
+            .navigationDestination(for: Int32.self) { numberValue in
+                ItemGuideView(guideID: numberValue, path: $path)
             }
             .navigationTitle("Fresh Reminder")
             .searchable(text: $searchString)

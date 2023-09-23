@@ -81,7 +81,7 @@ class FoodieViewModel: ObservableObject {
                     self.state = .failed(error)
                 }
             }, receiveValue: { data in
-                self.searchResults = data
+                self.state = .loadedSearch(data)
             })
             .store(in: &cancellables)
     }
@@ -101,8 +101,6 @@ class FoodieViewModel: ObservableObject {
                 }
             }, receiveValue: { data in
                 self.state = .loadedGuide(data)
-                print("Got \(guideID)")
-                print(data.name)
             })
             .store(in: &cancellables)
     }

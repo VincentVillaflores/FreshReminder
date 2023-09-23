@@ -181,6 +181,20 @@ class CoreDataViewModel: ObservableObject{
         saveContext()
     }
     
+    func addProduct(name: String, category: String, dateBought:Date, expirySeconds:Int32, location: String) {
+        let newItem = Product(context: context)
+        newItem.id = UUID()
+        newItem.name = name
+        newItem.category = category
+        newItem.dateBought = dateBought
+        let expiryDate = Calendar.current.date(byAdding: .second, value: Int(expirySeconds), to: dateBought)
+        newItem.expirationDate = expiryDate
+        newItem.user = globalUser
+        newItem.location = location
+        
+        saveContext()
+    }
+    
     func deleteProduct(_ productToDelete: Product) {
         context.delete(productToDelete)
         

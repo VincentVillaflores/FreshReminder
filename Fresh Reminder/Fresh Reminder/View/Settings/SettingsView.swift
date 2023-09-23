@@ -83,25 +83,22 @@ struct SettingsView: View {
     let reminderRange = 1...31
     
     var body: some View {
-        Form {
-            Section{} header: {
-                Text(verbatim: "Settings")
-                    .font(.largeTitle)
-                    .foregroundColor(.primary)
-            }.textCase(nil)
-            
-            // Steppers to alter the environment object storing user settings
-            Section {
-                Stepper("\(ItemCategory.FruitVeg.description): \(self.fruitsVegReminderBinding.wrappedValue)", value: self.fruitsVegReminderBinding, in: reminderRange)
-                Stepper("\(ItemCategory.Meat.description): \(self.meatReminderBinding.wrappedValue)", value: self.meatReminderBinding, in: reminderRange)
-                Stepper("\(ItemCategory.Seafood.description): \(self.seafoodReminderBinding.wrappedValue)", value: self.seafoodReminderBinding, in: reminderRange)
-                Stepper("\(ItemCategory.Dairy.description): \(self.dairyReminderBinding.wrappedValue)", value: self.dairyReminderBinding, in: reminderRange)
-                Stepper("\(ItemCategory.Grain.description): \(self.grainReminderBinding.wrappedValue)", value: self.grainReminderBinding, in: reminderRange)
-                Stepper("\(ItemCategory.Mixed.description): \(self.mixedReminderBinding.wrappedValue)", value: self.mixedReminderBinding, in: reminderRange)
-                Stepper("\(ItemCategory.Misc.description): \(self.miscReminderBinding.wrappedValue)", value: self.miscReminderBinding, in: reminderRange)
-            } header: {
-                Text("Reminder before expiry (days)")
+        NavigationStack {
+            Form {
+                // Steppers to alter the environment object storing user settings
+                Section {
+                    Stepper("\(ItemCategory.FruitVeg.description): \(self.fruitsVegReminderBinding.wrappedValue)", value: self.fruitsVegReminderBinding, in: reminderRange)
+                    Stepper("\(ItemCategory.Meat.description): \(self.meatReminderBinding.wrappedValue)", value: self.meatReminderBinding, in: reminderRange)
+                    Stepper("\(ItemCategory.Seafood.description): \(self.seafoodReminderBinding.wrappedValue)", value: self.seafoodReminderBinding, in: reminderRange)
+                    Stepper("\(ItemCategory.Dairy.description): \(self.dairyReminderBinding.wrappedValue)", value: self.dairyReminderBinding, in: reminderRange)
+                    Stepper("\(ItemCategory.Grain.description): \(self.grainReminderBinding.wrappedValue)", value: self.grainReminderBinding, in: reminderRange)
+                    Stepper("\(ItemCategory.Mixed.description): \(self.mixedReminderBinding.wrappedValue)", value: self.mixedReminderBinding, in: reminderRange)
+                    Stepper("\(ItemCategory.Misc.description): \(self.miscReminderBinding.wrappedValue)", value: self.miscReminderBinding, in: reminderRange)
+                } header: {
+                    Text("Reminder before expiry (days)")
+                }
             }
+            .navigationTitle("Settings")
         }
     }
 }
