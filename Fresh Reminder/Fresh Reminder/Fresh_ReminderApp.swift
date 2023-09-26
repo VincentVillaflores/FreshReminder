@@ -14,7 +14,6 @@ struct Fresh_ReminderApp: App {
     init(){
         let context = persistenceController.container.viewContext
         _cdvm = StateObject(wrappedValue: CoreDataViewModel(context: context))
-        cdvm.setUp()
     }
     
     var body: some Scene {

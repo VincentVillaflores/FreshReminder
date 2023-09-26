@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var cdvm: CoreDataViewModel
     
     var body: some View {
         TabView {
@@ -23,6 +24,8 @@ struct ContentView: View {
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.fill")
                 }
+        }.onAppear {
+            cdvm.setUp()
         }
     }
 }
