@@ -69,7 +69,7 @@ struct FridgeView: View {
                     
                 case .photoItem:
                     // TODO: Replace with camera view
-                    NewItemView()
+                    CameraView()
                 }
             }
             .navigationDestination(for: String.self) { textValue in
