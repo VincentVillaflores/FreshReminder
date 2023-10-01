@@ -26,10 +26,22 @@
 		2D81E6702A9ADE5B007CA724 /* ItemSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E66F2A9ADE5B007CA724 /* ItemSheet.swift */; };
 		2D81E6752A9B1F54007CA724 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E6742A9B1F54007CA724 /* NewItemView.swift */; };
 		793063B92AC26B7200CD87D1 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063B82AC26B7200CD87D1 /* CameraView.swift */; };
+		793063C12AC8FD0900CD87D1 /* Fresh_ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063C02AC8FD0900CD87D1 /* Fresh_ReminderTests.swift */; };
+		793063C82AC8FD7A00CD87D1 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063C72AC8FD7A00CD87D1 /* CoreDataTests.swift */; };
 		794F2CD92AAFD4C20023FA34 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CD72AAFD4C20023FA34 /* Model.xcdatamodeld */; };
 		794F2CDB2AAFD7130023FA34 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CDA2AAFD7130023FA34 /* Persistence.swift */; };
 		794F2CDD2AB18D6F0023FA34 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CDC2AB18D6F0023FA34 /* CoreDataViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		793063C22AC8FD0900CD87D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D6133D82A82314B008EEC3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D6133DF2A82314B008EEC3D;
+			remoteInfo = "Fresh Reminder";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2D08D3BE2AB6AE8500921648 /* FoodieAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieAPIModel.swift; sourceTree = "<group>"; };
@@ -53,6 +65,9 @@
 		2D81E66F2A9ADE5B007CA724 /* ItemSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSheet.swift; sourceTree = "<group>"; };
 		2D81E6742A9B1F54007CA724 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		793063B82AC26B7200CD87D1 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		793063BE2AC8FD0900CD87D1 /* Fresh ReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fresh ReminderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		793063C02AC8FD0900CD87D1 /* Fresh_ReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fresh_ReminderTests.swift; sourceTree = "<group>"; };
+		793063C72AC8FD7A00CD87D1 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		794F2CD82AAFD4C20023FA34 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		794F2CDA2AAFD7130023FA34 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		794F2CDC2AB18D6F0023FA34 /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
@@ -60,6 +75,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		2D6133DD2A82314B008EEC3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		793063BB2AC8FD0900CD87D1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -74,6 +96,7 @@
 			children = (
 				794F2CDC2AB18D6F0023FA34 /* CoreDataViewModel.swift */,
 				2D6133E22A82314B008EEC3D /* Fresh Reminder */,
+				793063BF2AC8FD0900CD87D1 /* Fresh ReminderTests */,
 				2D6133E12A82314B008EEC3D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				2D6133E02A82314B008EEC3D /* Fresh Reminder.app */,
+				793063BE2AC8FD0900CD87D1 /* Fresh ReminderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,6 +219,15 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		793063BF2AC8FD0900CD87D1 /* Fresh ReminderTests */ = {
+			isa = PBXGroup;
+			children = (
+				793063C02AC8FD0900CD87D1 /* Fresh_ReminderTests.swift */,
+				793063C72AC8FD7A00CD87D1 /* CoreDataTests.swift */,
+			);
+			path = "Fresh ReminderTests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -215,6 +248,24 @@
 			productReference = 2D6133E02A82314B008EEC3D /* Fresh Reminder.app */;
 			productType = "com.apple.product-type.application";
 		};
+		793063BD2AC8FD0900CD87D1 /* Fresh ReminderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 793063C42AC8FD0900CD87D1 /* Build configuration list for PBXNativeTarget "Fresh ReminderTests" */;
+			buildPhases = (
+				793063BA2AC8FD0900CD87D1 /* Sources */,
+				793063BB2AC8FD0900CD87D1 /* Frameworks */,
+				793063BC2AC8FD0900CD87D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				793063C32AC8FD0900CD87D1 /* PBXTargetDependency */,
+			);
+			name = "Fresh ReminderTests";
+			productName = "Fresh ReminderTests";
+			productReference = 793063BE2AC8FD0900CD87D1 /* Fresh ReminderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -227,6 +278,10 @@
 				TargetAttributes = {
 					2D6133DF2A82314B008EEC3D = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					793063BD2AC8FD0900CD87D1 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 2D6133DF2A82314B008EEC3D;
 					};
 				};
 			};
@@ -244,6 +299,7 @@
 			projectRoot = "";
 			targets = (
 				2D6133DF2A82314B008EEC3D /* Fresh Reminder */,
+				793063BD2AC8FD0900CD87D1 /* Fresh ReminderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -255,6 +311,13 @@
 			files = (
 				2D6133EC2A82314D008EEC3D /* Preview Assets.xcassets in Resources */,
 				2D6133E82A82314D008EEC3D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		793063BC2AC8FD0900CD87D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +351,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		793063BA2AC8FD0900CD87D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				793063C82AC8FD7A00CD87D1 /* CoreDataTests.swift in Sources */,
+				793063C12AC8FD0900CD87D1 /* Fresh_ReminderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		793063C32AC8FD0900CD87D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D6133DF2A82314B008EEC3D /* Fresh Reminder */;
+			targetProxy = 793063C22AC8FD0900CD87D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2D6133ED2A82314D008EEC3D /* Debug */ = {
@@ -474,6 +554,45 @@
 			};
 			name = Release;
 		};
+		793063C52AC8FD0900CD87D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "none.Fresh-ReminderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fresh Reminder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fresh Reminder";
+			};
+			name = Debug;
+		};
+		793063C62AC8FD0900CD87D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "none.Fresh-ReminderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fresh Reminder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fresh Reminder";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -491,6 +610,15 @@
 			buildConfigurations = (
 				2D6133F02A82314D008EEC3D /* Debug */,
 				2D6133F12A82314D008EEC3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		793063C42AC8FD0900CD87D1 /* Build configuration list for PBXNativeTarget "Fresh ReminderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				793063C52AC8FD0900CD87D1 /* Debug */,
+				793063C62AC8FD0900CD87D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

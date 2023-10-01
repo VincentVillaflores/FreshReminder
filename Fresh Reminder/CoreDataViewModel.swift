@@ -97,12 +97,19 @@ class CoreDataViewModel: ObservableObject{
             globalUser = newUser
             let notification = NotificationPreferences(context: context)
             notification.dairyPreference = 3
+            self.dairyReminder = 3
             notification.fruitVegPreference = 3
+            self.fruitsVegReminder = 3
             notification.grainPreference = 3
+            self.grainReminder = 3
             notification.meatPreference = 3
+            self.meatReminder = 3
             notification.miscPreference = 3
+            self.miscReminder = 3
             notification.mixedPreference = 3
+            self.mixedReminder = 3
             notification.seafoodPreference = 3
+            self.seafoodReminder = 3
             newUser.notification = notification
             saveContext()
         }
