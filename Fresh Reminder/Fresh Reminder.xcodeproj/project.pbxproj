@@ -28,6 +28,7 @@
 		793063B92AC26B7200CD87D1 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063B82AC26B7200CD87D1 /* CameraView.swift */; };
 		793063C12AC8FD0900CD87D1 /* Fresh_ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063C02AC8FD0900CD87D1 /* Fresh_ReminderTests.swift */; };
 		793063C82AC8FD7A00CD87D1 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063C72AC8FD7A00CD87D1 /* CoreDataTests.swift */; };
+		793063D02ACAA5F600CD87D1 /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 793063CF2ACAA5F600CD87D1 /* Documentation.docc */; };
 		794F2CD92AAFD4C20023FA34 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CD72AAFD4C20023FA34 /* Model.xcdatamodeld */; };
 		794F2CDB2AAFD7130023FA34 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CDA2AAFD7130023FA34 /* Persistence.swift */; };
 		794F2CDD2AB18D6F0023FA34 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CDC2AB18D6F0023FA34 /* CoreDataViewModel.swift */; };
@@ -68,6 +69,7 @@
 		793063BE2AC8FD0900CD87D1 /* Fresh ReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fresh ReminderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793063C02AC8FD0900CD87D1 /* Fresh_ReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fresh_ReminderTests.swift; sourceTree = "<group>"; };
 		793063C72AC8FD7A00CD87D1 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
+		793063CF2ACAA5F600CD87D1 /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
 		794F2CD82AAFD4C20023FA34 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		794F2CDA2AAFD7130023FA34 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		794F2CDC2AB18D6F0023FA34 /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				2D6133E72A82314D008EEC3D /* Assets.xcassets */,
 				2D6133E92A82314D008EEC3D /* Fresh_Reminder.entitlements */,
 				2D6133EA2A82314D008EEC3D /* Preview Content */,
+				793063CF2ACAA5F600CD87D1 /* Documentation.docc */,
 			);
 			path = "Fresh Reminder";
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				2D08D3CE2ABEE81C00921648 /* ItemCategory.swift in Sources */,
 				794F2CD92AAFD4C20023FA34 /* Model.xcdatamodeld in Sources */,
 				2D81E63A2A823328007CA724 /* FridgeView.swift in Sources */,
+				793063D02ACAA5F600CD87D1 /* Documentation.docc in Sources */,
 				2D08D3BF2AB6AE8500921648 /* FoodieAPIModel.swift in Sources */,
 				2D08D3CB2ABEE32400921648 /* NavigationUtil.swift in Sources */,
 				2D08D3C32ABC0BF000921648 /* ItemGuideView.swift in Sources */,
@@ -424,6 +428,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				RUN_DOCUMENTATION_COMPILER = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -475,6 +480,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				RUN_DOCUMENTATION_COMPILER = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
