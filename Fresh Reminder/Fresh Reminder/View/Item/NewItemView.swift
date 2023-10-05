@@ -3,6 +3,7 @@
 //  Fresh Reminder
 //
 //  Created by Matthew Soulsby on 27/8/2023.
+//  with inspirations from ContentView.swift by Leon Wei on 5/31/21.
 //
 
 import SwiftUI
@@ -10,17 +11,52 @@ import SwiftUI
 struct NewItemView: View {
     @EnvironmentObject var cdvm: CoreDataViewModel
     
+    @State var isPresenting: Bool = false
+    @State var uiImage: UIImage?
+    @ObservedObject var classifier = ImageClassifier()
+    @State var sourceType: UIImagePickerController.SourceType = .camera
+    
     @State
     var itemName = ""
         
     var body: some View {
-        Form {
-            Section(header: Text("Item Name")) {
-                TextField("Name", text: $itemName)
+        VStack{
+            Form {
+                Section(header: Text("Item Name")) {
+                    TextField("Name", text: $itemName)
+                }
+                NavigationLink("Search", value: itemName)
+                    .disabled(itemName.count < 3)
+            }.navigationTitle("Search Item")
+            
+            Spacer()
+            
+            HStack{
+                Image(systemName: "photo")
+                    .onTapGesture {
+                        isPresenting = true
+                        sourceType = .photoLibrary
+                    }
+                
+                Image(systemName: "camera")
+                    .onTapGesture {
+                        isPresenting = true
+                        sourceType = .camera
+                    }
             }
-            NavigationLink("Search", value: itemName)
-                .disabled(itemName.count < 3)
-        }.navigationTitle("Search Item")
+            
+            Spacer()
+        }
+        .sheet(isPresented: $isPresenting){
+            ImagePicker(uiImage: $uiImage, isPresenting:  $isPresenting, sourceType: $sourceType)
+                .onDisappear{
+                    if uiImage != nil {
+                        classifier.detect(uiImage: uiImage!)
+                        itemName = classifier.imageClass ?? "nothing"
+                    }
+                }
+        }
+        .padding()
     }
 }
 
