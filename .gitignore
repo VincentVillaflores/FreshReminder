@@ -1,3 +1,5 @@
 ImageClassifier/Data*
 ImageClassifier/FreshReminderImageClassifier.mlproj/Checkpoints*
 ImageClassifier/FreshReminderImageClassifier.mlproj/Snapshots*
+
+.DS_Store
