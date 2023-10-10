@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A view that displays all of the potential products returned by the Rest API that the user searched for.
 struct ItemSearchView: View {
     @ObservedObject
     var viewModel = FoodieViewModel()

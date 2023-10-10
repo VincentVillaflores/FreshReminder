@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A view that represents of the Calendar month the user can use to visualise the proximity of the expiration dates of all their products.
 struct CalendarGrid: View {
     @Binding
     var selectedDate: Date
@@ -59,6 +60,7 @@ struct CalendarGrid: View {
     }
 }
 
+/// The user will be able to view all the items that are expiring on the selected day.
 struct CalendarButton: View {
     @Binding
     var selectedDate: Date

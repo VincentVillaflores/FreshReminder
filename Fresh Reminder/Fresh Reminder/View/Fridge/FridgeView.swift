@@ -7,23 +7,29 @@
 
 import SwiftUI
 
+/// The main view responsible for displaying the contents of the fridge, grouped by category.
 struct FridgeView: View {
     @EnvironmentObject var cdvm: CoreDataViewModel
-    
+
+    /// List of all products in the fridge.
     var productsList: [Product] {
         return cdvm.products
     }
-    
+
+    /// List of unique product categories.
     var uniqueCategories: [String] {
         return cdvm.uniqueCategories()
     }
     
+    /// Text input for search functionality.
     @State
     var searchString = ""
     
+    /// Navigation path used for the navigation stack.
     @State
     var path = NavigationPath()
-    
+
+    /// Boolean flag indicating whether the add-item choices should be presented.
     @State
     var presentChoices = false
     
@@ -69,7 +75,7 @@ struct FridgeView: View {
                     
                 case .photoItem:
                     // TODO: Replace with camera view
-                    CameraView()
+                    NewItemView()
                 }
             }
             .navigationDestination(for: String.self) { textValue in

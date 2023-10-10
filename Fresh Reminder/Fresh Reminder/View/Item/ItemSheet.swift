@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// A view representing a specific product in the fridge.
+/// The user is able to modify the expiration date of the product and to delete the product if needed.
 struct ItemSheet: View {
     @EnvironmentObject var cdvm: CoreDataViewModel
     

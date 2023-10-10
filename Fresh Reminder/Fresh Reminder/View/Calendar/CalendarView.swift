@@ -10,6 +10,8 @@ import SwiftUI
 let currDate = getStartOfDay(date: Date.now, calendar: Calendar.current)
 let calendar = Calendar.current
 
+/// A view that represents of the Calendar month the user can use to visualise the proximity of the expiration dates of all their products.
+/// The user will be able to view all the items that are expiring on the selected day.
 struct CalendarView: View {
     @EnvironmentObject var cdvm: CoreDataViewModel
     

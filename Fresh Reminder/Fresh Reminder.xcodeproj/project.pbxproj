@@ -25,7 +25,6 @@
 		2D81E6692A934BA3007CA724 /* CalendarGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E6682A934BA3007CA724 /* CalendarGrid.swift */; };
 		2D81E6702A9ADE5B007CA724 /* ItemSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E66F2A9ADE5B007CA724 /* ItemSheet.swift */; };
 		2D81E6752A9B1F54007CA724 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E6742A9B1F54007CA724 /* NewItemView.swift */; };
-		793063B92AC26B7200CD87D1 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063B82AC26B7200CD87D1 /* CameraView.swift */; };
 		793063C12AC8FD0900CD87D1 /* Fresh_ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063C02AC8FD0900CD87D1 /* Fresh_ReminderTests.swift */; };
 		793063C82AC8FD7A00CD87D1 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063C72AC8FD7A00CD87D1 /* CoreDataTests.swift */; };
 		793063D02ACAA5F600CD87D1 /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 793063CF2ACAA5F600CD87D1 /* Documentation.docc */; };
@@ -33,6 +32,7 @@
 		793063DC2ACD334800CD87D1 /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063DB2ACD334800CD87D1 /* ImageClassifier.swift */; };
 		79435DA72ACD3CED00270673 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79435DA62ACD3CED00270673 /* ImagePicker.swift */; };
 		79435DA92ACD41E700270673 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 79435DA82ACD41E700270673 /* MobileNetV2.mlmodel */; };
+		79435DAC2AD3E05600270673 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79435DAB2AD3E05600270673 /* AppDelegate.swift */; };
 		794F2CD92AAFD4C20023FA34 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CD72AAFD4C20023FA34 /* Model.xcdatamodeld */; };
 		794F2CDB2AAFD7130023FA34 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CDA2AAFD7130023FA34 /* Persistence.swift */; };
 		794F2CDD2AB18D6F0023FA34 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CDC2AB18D6F0023FA34 /* CoreDataViewModel.swift */; };
@@ -69,7 +69,6 @@
 		2D81E6682A934BA3007CA724 /* CalendarGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGrid.swift; sourceTree = "<group>"; };
 		2D81E66F2A9ADE5B007CA724 /* ItemSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSheet.swift; sourceTree = "<group>"; };
 		2D81E6742A9B1F54007CA724 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
-		793063B82AC26B7200CD87D1 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		793063BE2AC8FD0900CD87D1 /* Fresh ReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fresh ReminderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793063C02AC8FD0900CD87D1 /* Fresh_ReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fresh_ReminderTests.swift; sourceTree = "<group>"; };
 		793063C72AC8FD7A00CD87D1 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
@@ -78,6 +77,8 @@
 		793063DB2ACD334800CD87D1 /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
 		79435DA62ACD3CED00270673 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		79435DA82ACD41E700270673 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
+		79435DAA2AD3DF1E00270673 /* Fresh-Reminder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Fresh-Reminder-Info.plist"; sourceTree = SOURCE_ROOT; };
+		79435DAB2AD3E05600270673 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		794F2CD82AAFD4C20023FA34 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		794F2CDA2AAFD7130023FA34 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		794F2CDC2AB18D6F0023FA34 /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
@@ -123,6 +124,7 @@
 		2D6133E22A82314B008EEC3D /* Fresh Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				79435DAA2AD3DF1E00270673 /* Fresh-Reminder-Info.plist */,
 				793063D72ACD332D00CD87D1 /* Classifier.swift */,
 				79435DA82ACD41E700270673 /* MobileNetV2.mlmodel */,
 				793063DB2ACD334800CD87D1 /* ImageClassifier.swift */,
@@ -207,6 +209,7 @@
 				794F2CDA2AAFD7130023FA34 /* Persistence.swift */,
 				2D08D3BE2AB6AE8500921648 /* FoodieAPIModel.swift */,
 				2D08D3CD2ABEE81C00921648 /* ItemCategory.swift */,
+				79435DAB2AD3E05600270673 /* AppDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -228,7 +231,6 @@
 		793063B72AC26B6700CD87D1 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				793063B82AC26B7200CD87D1 /* CameraView.swift */,
 				79435DA62ACD3CED00270673 /* ImagePicker.swift */,
 			);
 			path = Camera;
@@ -349,8 +351,8 @@
 				79435DA92ACD41E700270673 /* MobileNetV2.mlmodel in Sources */,
 				2D81E6472A89FB95007CA724 /* CalendarDates.swift in Sources */,
 				794F2CDB2AAFD7130023FA34 /* Persistence.swift in Sources */,
-				793063B92AC26B7200CD87D1 /* CameraView.swift in Sources */,
 				2D81E6752A9B1F54007CA724 /* NewItemView.swift in Sources */,
+				79435DAC2AD3E05600270673 /* AppDelegate.swift in Sources */,
 				2D81E63C2A82333E007CA724 /* SettingsView.swift in Sources */,
 				2D08D3C72ABC1F2D00921648 /* Search.swift in Sources */,
 				2D81E6692A934BA3007CA724 /* CalendarGrid.swift in Sources */,
@@ -514,6 +516,7 @@
 				DEVELOPMENT_TEAM = AK469M3497;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Fresh-Reminder-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed to take photos of grocery products.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -524,7 +527,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -552,6 +554,7 @@
 				DEVELOPMENT_TEAM = AK469M3497;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Fresh-Reminder-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed to take photos of grocery products.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -562,7 +565,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

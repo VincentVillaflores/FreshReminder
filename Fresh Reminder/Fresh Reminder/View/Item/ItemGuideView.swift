@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A  view for users to interact with a detailed guide about a specific food item. Once a food item is selected, its guide, fetched through the `FoodieViewModel`, provides information on storage locations, storage durations, and useful tips.
 struct ItemGuideView: View {
     @EnvironmentObject
     var cdvm: CoreDataViewModel

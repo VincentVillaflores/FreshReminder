@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Represents the main content view of the app with three tabs: Fridge, Calendar, and Settings.
 struct ContentView: View {
     @EnvironmentObject var cdvm: CoreDataViewModel
     
@@ -40,6 +41,7 @@ struct ContentView_Previews: PreviewProvider {
 struct MockContentView: View {
     let persistenceController = PersistenceController.shared
     @StateObject private var cdvm: CoreDataViewModel
+    
     init(){
         let context = persistenceController.container.viewContext
         _cdvm = StateObject(wrappedValue: CoreDataViewModel(context: context))

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A view for the user to modify how many days before the expiration date the user will be notified.
 struct SettingsView: View {
     @EnvironmentObject var cdvm: CoreDataViewModel
     var fruitsVegReminderBinding: Binding<Int> {

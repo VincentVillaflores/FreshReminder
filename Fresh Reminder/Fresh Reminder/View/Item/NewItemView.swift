@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+/// A view to add a new item to the fridge.
+/// It allows the user to input an item's name or to use camera or photo library to identify an item using an image classifier. 
 struct NewItemView: View {
     @EnvironmentObject var cdvm: CoreDataViewModel
     
