@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 
+/// A class that contains all of the necessary Core Data functions needed.
 class CoreDataViewModel: ObservableObject{
     private var context: NSManagedObjectContext
     @Published var globalUser: User?
@@ -15,36 +16,43 @@ class CoreDataViewModel: ObservableObject{
     @Published var fruitsVegReminder: Int32? {
         didSet{
             updatePreference(\.fruitVegPreference, with: fruitsVegReminder ?? 1)
+            updateNotificationCategory(products: getProductsIn(category: ItemCategory.FruitVeg.description), numOfDays: fruitsVegReminder!)
         }
     }
     @Published var meatReminder: Int32? {
         didSet{
             updatePreference(\.meatPreference, with: meatReminder ?? 1)
+            updateNotificationCategory(products: getProductsIn(category: ItemCategory.Meat.description), numOfDays: meatReminder!)
         }
     }
     @Published var seafoodReminder: Int32? {
         didSet{
             updatePreference(\.seafoodPreference, with: seafoodReminder ?? 1)
+            updateNotificationCategory(products: getProductsIn(category: ItemCategory.Seafood.description), numOfDays: seafoodReminder!)
         }
     }
     @Published var dairyReminder: Int32? {
         didSet{
             updatePreference(\.dairyPreference, with: dairyReminder ?? 1)
+            updateNotificationCategory(products: getProductsIn(category: ItemCategory.Dairy.description), numOfDays: dairyReminder!)
         }
     }
     @Published var grainReminder: Int32? {
         didSet{
             updatePreference(\.grainPreference, with: grainReminder ?? 1)
+            updateNotificationCategory(products: getProductsIn(category: ItemCategory.Grain.description), numOfDays: grainReminder!)
         }
     }
     @Published var mixedReminder: Int32? {
         didSet{
             updatePreference(\.mixedPreference, with: mixedReminder ?? 1)
+            updateNotificationCategory(products: getProductsIn(category: ItemCategory.Mixed.description), numOfDays: mixedReminder!)
         }
     }
     @Published var miscReminder: Int32? {
         didSet{
             updatePreference(\.miscPreference, with: miscReminder ?? 1)
+            updateNotificationCategory(products: getProductsIn(category: ItemCategory.Misc.description), numOfDays: miscReminder!)
         }
     }
     
@@ -62,6 +70,28 @@ class CoreDataViewModel: ObservableObject{
         }
         user.notification?[keyPath: keyPath] = value
         saveContext()
+    }
+    
+    func getNotificationPreference(key: String) -> Int32 {
+        switch key {
+        case ItemCategory.FruitVeg.description:
+            return fruitsVegReminder!
+        case ItemCategory.Meat.description:
+            return meatReminder!
+        case ItemCategory.Seafood.description:
+            return seafoodReminder!
+        case ItemCategory.Dairy.description:
+            return dairyReminder!
+        case ItemCategory.Grain.description:
+            return grainReminder!
+        case ItemCategory.Misc.description:
+            return miscReminder!
+        case ItemCategory.Mixed.description:
+            return mixedReminder!
+            
+        default:
+            return -1
+        }
     }
     
     /// Refreshes the `products` array with the latest data from Core Data.
@@ -89,7 +119,7 @@ class CoreDataViewModel: ObservableObject{
     }
     
     /// Initializes a new instance of `CoreDataViewModel`.
-    /// 
+    ///
     /// - Parameter context: The managed object context associated with the Core Data stack. This context is used for data manipulation and saving operations.
     init(context: NSManagedObjectContext) {
         self.context = context
@@ -246,6 +276,7 @@ class CoreDataViewModel: ObservableObject{
     ///
     /// This function creates a new Product object in the Core Data context with the given properties.
     /// It also sets an expiration date for the product by adding the `expiryDays` to the `dateBought`.
+    /// This function will also create a notification for the expiration of the product.
     /// The function then saves this new product to Core Data by calling `saveContext()`.
     ///
     /// - Parameters:
@@ -265,6 +296,10 @@ class CoreDataViewModel: ObservableObject{
         newItem.user = globalUser
         newItem.location = location
         
+        let numOfDays = getNotificationPreference(key: newItem.category!)
+        
+        addNotification(productName: newItem.name!, productID: newItem.id!, expirationDate: newItem.expirationDate!, numOfDays: numOfDays)
+        
         saveContext()
     }
     
@@ -272,6 +307,7 @@ class CoreDataViewModel: ObservableObject{
     ///
     /// This function creates a new Product object with specified attributes and stores it in Core Data.
     /// It calculates the expiration date by adding the specified number of seconds (`expirySeconds`) to the `dateBought`.
+    /// This function will also create a notification for the expiration of the product.
     /// After setting all the attributes, the function saves the object into Core Data by calling `saveContext()`.
     ///
     /// - Parameters:
@@ -291,17 +327,24 @@ class CoreDataViewModel: ObservableObject{
         newItem.user = globalUser
         newItem.location = location
         
+        let numOfDays = getNotificationPreference(key: newItem.category!)
+        
+        addNotification(productName: newItem.name!, productID: newItem.id!, expirationDate: newItem.expirationDate!, numOfDays: numOfDays)
+        
         saveContext()
     }
     
     /// Deletes a specified product from Core Data.
     ///
     /// This function removes the given `Product` object (`productToDelete`) from Core Data.
+    /// This function will also remove the notification that had been created for the product.
     /// After deleting the object, it calls `saveContext()` to persist the changes.
     ///
     /// - Parameter productToDelete: The `Product` object to be deleted from Core Data.
     func deleteProduct(_ productToDelete: Product) {
         context.delete(productToDelete)
+        
+        removeNotification(productID: productToDelete.id!)
         
         saveContext()
     }
@@ -310,6 +353,7 @@ class CoreDataViewModel: ObservableObject{
     ///
     /// This function extends the expiration date of a given `Product` object (`product`) by a certain
     /// number of days (`days`). It then calls `saveContext()` to persist the changes to Core Data.
+    /// This function will also update the notification that was created for the product to the new expiration date.
     ///
     /// - Parameters:
     ///   - days: The number of days to add to the expiration date.
@@ -317,6 +361,8 @@ class CoreDataViewModel: ObservableObject{
     func addDaysToExpirationDate(days: Double, product: Product) {
         let secondsInADay = 86400
         product.expirationDate?.addTimeInterval(Double(secondsInADay) * days)
+        
+        updateNotification(productName: product.name!, productID: product.id!, expirationDate: product.expirationDate!, numOfDays: Int32(days))
         
         saveContext()
     }
