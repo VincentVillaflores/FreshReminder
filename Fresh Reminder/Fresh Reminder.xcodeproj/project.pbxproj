@@ -25,6 +25,7 @@
 		2D81E6692A934BA3007CA724 /* CalendarGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E6682A934BA3007CA724 /* CalendarGrid.swift */; };
 		2D81E6702A9ADE5B007CA724 /* ItemSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E66F2A9ADE5B007CA724 /* ItemSheet.swift */; };
 		2D81E6752A9B1F54007CA724 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81E6742A9B1F54007CA724 /* NewItemView.swift */; };
+		2DD1802E2AD63EE4008825DC /* FreshReminderImageClassifier-100.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2DD1802D2AD63EE4008825DC /* FreshReminderImageClassifier-100.mlmodel */; };
 		793063C12AC8FD0900CD87D1 /* Fresh_ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063C02AC8FD0900CD87D1 /* Fresh_ReminderTests.swift */; };
 		793063C82AC8FD7A00CD87D1 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063C72AC8FD7A00CD87D1 /* CoreDataTests.swift */; };
 		793063D02ACAA5F600CD87D1 /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 793063CF2ACAA5F600CD87D1 /* Documentation.docc */; };
@@ -69,6 +70,7 @@
 		2D81E6682A934BA3007CA724 /* CalendarGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGrid.swift; sourceTree = "<group>"; };
 		2D81E66F2A9ADE5B007CA724 /* ItemSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSheet.swift; sourceTree = "<group>"; };
 		2D81E6742A9B1F54007CA724 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
+		2DD1802D2AD63EE4008825DC /* FreshReminderImageClassifier-100.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "FreshReminderImageClassifier-100.mlmodel"; sourceTree = "<group>"; };
 		793063BE2AC8FD0900CD87D1 /* Fresh ReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fresh ReminderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793063C02AC8FD0900CD87D1 /* Fresh_ReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fresh_ReminderTests.swift; sourceTree = "<group>"; };
 		793063C72AC8FD7A00CD87D1 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				79435DAA2AD3DF1E00270673 /* Fresh-Reminder-Info.plist */,
 				793063D72ACD332D00CD87D1 /* Classifier.swift */,
+				2DD1802D2AD63EE4008825DC /* FreshReminderImageClassifier-100.mlmodel */,
 				79435DA82ACD41E700270673 /* MobileNetV2.mlmodel */,
 				793063DB2ACD334800CD87D1 /* ImageClassifier.swift */,
 				2DCB1E352AAF2D16009D7E80 /* View */,
@@ -363,6 +366,7 @@
 				2D81E6382A823314007CA724 /* CalendarView.swift in Sources */,
 				2D81E6702A9ADE5B007CA724 /* ItemSheet.swift in Sources */,
 				2D08D3CE2ABEE81C00921648 /* ItemCategory.swift in Sources */,
+				2DD1802E2AD63EE4008825DC /* FreshReminderImageClassifier-100.mlmodel in Sources */,
 				794F2CD92AAFD4C20023FA34 /* Model.xcdatamodeld in Sources */,
 				2D81E63A2A823328007CA724 /* FridgeView.swift in Sources */,
 				793063D02ACAA5F600CD87D1 /* Documentation.docc in Sources */,
