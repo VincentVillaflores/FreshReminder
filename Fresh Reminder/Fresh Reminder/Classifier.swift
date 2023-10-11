@@ -29,7 +29,7 @@ struct Classifier {
     mutating func detect(ciImage: CIImage) {
         
         // Load the MobileNetV2 model.
-        guard let model = try? VNCoreMLModel(for: MobileNetV2(configuration: MLModelConfiguration()).model)
+        guard let model = try? VNCoreMLModel(for: FreshReminderImageClassifier(configuration: MLModelConfiguration()).model)
         else {
             return
         }
