@@ -11,13 +11,18 @@ import SwiftUI
 struct CalendarGrid: View {
     @Binding
     var selectedDate: Date
-    @Binding
-    var monthOffset: Int
     
-    let currDate: Date
+    let monthOffset: Int
+    
+    let currDate = getStartOfDay(date: Date.now, calendar: Calendar.current)
     let dateSet: Set<Date>
-    let monthInt: Int
-    let dateArray: [DateColor]
+    
+    var monthDate: Date { Calendar.current.date(byAdding: .month, value: monthOffset, to: currDate)! }
+    
+    var monthInt: Int { Calendar.current.component(.month, from: monthDate) }
+    
+    var dateArray: [DateColor] { generateDateArray(date: monthDate, calendar: Calendar.current) }
+    
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
     
     var body: some View {
@@ -33,30 +38,25 @@ struct CalendarGrid: View {
                 Text("Sat")
             }
             
-            Divider()
+            Divider().frame(minHeight: 10)
             
             // Grid of day buttons
             LazyVGrid(columns: columns) {
                 
                 
                 ForEach(dateArray, id: \.id) { value in
-                    let components = calendar.dateComponents([.day, .month], from: value.date)
+                    let components = Calendar.current.dateComponents([.day, .month], from: value.date)
                     
-                    CalendarButton(selectedDate: $selectedDate, monthOffset: $monthOffset, isCurrDate: (currDate == value.date), hasExpiringItems: dateSet.contains(value.date), monthInt: monthInt, components: components, buttonDateColor: value)
+                    CalendarButton(
+                        selectedDate: $selectedDate,
+                        isCurrDate: (currDate == value.date),
+                        hasExpiringItems: dateSet.contains(value.date),
+                        monthInt: monthInt, components: components,
+                        buttonDateColor: value
+                    )
                 }
-                // Lateral gesture detector (increment/decrement month of calendar)
-            }.gesture(DragGesture().onEnded({value in
-                let direction = getSwipeDirection(value: value)
-                switch direction {
-                case .left:
-                    monthOffset -= 1
-                case .right:
-                    monthOffset += 1
-                default:
-                    break
-                }
-            }))
-        }
+            }
+        }.padding()
     }
 }
 
@@ -64,11 +64,8 @@ struct CalendarGrid: View {
 struct CalendarButton: View {
     @Binding
     var selectedDate: Date
-    @Binding
-    var monthOffset: Int
     
-    @State
-    var isSelected = false
+    var isSelected: Bool { selectedDate == buttonDateColor.date }
     
     let isCurrDate: Bool
     let hasExpiringItems: Bool
@@ -95,7 +92,7 @@ struct CalendarButton: View {
             // Day number as button
             Button {
                 if (components.month != monthInt) {
-                    monthOffset += components.month! - monthInt
+                    //monthOffset += components.month! - monthInt
                 }
                 
                 if (buttonDateColor.date == selectedDate) {
@@ -116,8 +113,6 @@ struct CalendarButton: View {
                     .offset(x: 12, y: -12)
                     .foregroundColor((components.month == monthInt) ? .accentColor : .secondary)
             }
-        }.onAppear{
-            isSelected = (selectedDate == buttonDateColor.date)
         }
     }
 }
@@ -155,7 +150,7 @@ struct MockCalendarGrid: View {
     }
     
     var body: some View {
-        CalendarGrid(selectedDate: $selectedDate, monthOffset: $monthOffset, currDate: Date.now, dateSet: dateSet, monthInt: monthInt, dateArray: dateArray)
+        CalendarGrid(selectedDate: $selectedDate, monthOffset: monthOffset, dateSet: dateSet)
     }
 }
 #endif

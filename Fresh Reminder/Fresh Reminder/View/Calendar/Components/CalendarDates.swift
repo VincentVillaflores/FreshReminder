@@ -23,6 +23,19 @@ func getMonthName(month: Int, calendar: Calendar) -> String {
     return calendar.monthSymbols[month - 1]
 }
 
+func getMonthAndYear(monthOffset: Int) -> String {
+    let calendar = Calendar.current
+    guard let monthDate = calendar.date(byAdding: .month, value: monthOffset, to: Date.now) else {
+        return "Unknown date"
+    }
+    
+    let month = calendar.component(.month, from: monthDate)
+    
+    let year = calendar.component(.year, from: monthDate)
+    
+    return "\(calendar.monthSymbols[month - 1]), \(year)"
+}
+
 /// Formats the given date into a string representation "dd/MM/yyyy".
 ///
 /// This function takes a `Date` object as an input and returns its string representation

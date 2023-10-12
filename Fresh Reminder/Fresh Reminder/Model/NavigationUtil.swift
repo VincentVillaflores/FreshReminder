@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Simple enum to keep track of non data-driven routes
+/// Simple enum to keep track of non data-driven routes
 /// Enumerates possible navigation destinations in the application.
 ///
 /// This enumeration provides a list of view destinations that can be navigated to. It can be used to determine which view to present or navigate to based on user actions or other app events.

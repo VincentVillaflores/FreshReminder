@@ -2,33 +2,19 @@
 //  CalendarView.swift
 //  Fresh Reminder
 //
-//  Created by Matthew Soulsby on 8/8/2023.
+//  Created by Matthew Soulsby on 12/10/2023.
 //
 
 import SwiftUI
 
-let currDate = getStartOfDay(date: Date.now, calendar: Calendar.current)
-let calendar = Calendar.current
-
-/// A view that represents of the Calendar month the user can use to visualise the proximity of the expiration dates of all their products.
-/// The user will be able to view all the items that are expiring on the selected day.
 struct CalendarView: View {
     @EnvironmentObject var cdvm: CoreDataViewModel
     
     @State
-    var search = ""
-    
-    @State
-    var selectedDate = getStartOfDay(date: currDate, calendar: calendar)
+    var selectedDate = getStartOfDay(date: Date.now, calendar: Calendar.current)
     
     @State
     var monthOffset = 0
-    
-    var monthDate: Date { calendar.date(byAdding: .month, value: monthOffset, to: currDate)! }
-    
-    var monthInt: Int { calendar.component(.month, from: monthDate) }
-    
-    var dateArray: [DateColor] { generateDateArray(date: monthDate, calendar: calendar) }
     
     var dateSet: Set<Date> {
         return cdvm.uniqueDates()
@@ -37,11 +23,8 @@ struct CalendarView: View {
     var body: some View {
         
         VStack {
-            Text("").onAppear() {
-                cdvm.refreshProducts()            }
-            // Top bar containing month name and arrows
             HStack {
-                Text(verbatim: "\(getMonthName(month: monthInt, calendar: calendar)), \(calendar.component(.year, from: monthDate))")
+                Text(verbatim: getMonthAndYear(monthOffset: monthOffset))
                 
                 Spacer()
                 
@@ -59,34 +42,19 @@ struct CalendarView: View {
                 
             }.padding()
             
-            // Main grid of buttons
-            CalendarGrid(selectedDate: $selectedDate, monthOffset: $monthOffset, currDate: currDate, dateSet: dateSet, monthInt: monthInt, dateArray: dateArray)
-                .padding()
-                .animation(.interactiveSpring(), value: monthOffset)
+            CalendarViewController(dateSet: dateSet, monthOffset: $monthOffset, selectedDate: $selectedDate).frame(minHeight: 400)
             
-            // List of expiring foods
-            List {
-                let expiringProducts = cdvm.getProductsExpiringOn(date: selectedDate)
-                if !expiringProducts.isEmpty {
-                    Section("Expiring on \(formatDate(date: selectedDate))") {
-                        ForEach(expiringProducts) { item in
-                            ItemSheet(item: Binding.constant(item), displayDate: false)
-                        }
-                    }
-                }
-                else {
-                    Section("Nothing expiring on \(formatDate(date: selectedDate))"){}
-                }
-            }
+            ProductListView(selectedDate: $selectedDate)
+            
         }
     }
 }
 
+
+
 #if DEBUG
-struct CalendarView_Previews: PreviewProvider {
-    static var previews: some View {
-        MockCalendarView()
-    }
+#Preview {
+    MockCalendarView()
 }
 
 struct MockCalendarView: View {
