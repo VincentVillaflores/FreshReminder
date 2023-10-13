@@ -113,7 +113,6 @@
 		2D6133D72A82314B008EEC3D = {
 			isa = PBXGroup;
 			children = (
-				794F2CDC2AB18D6F0023FA34 /* CoreDataViewModel.swift */,
 				2D6133E22A82314B008EEC3D /* Fresh Reminder */,
 				793063BF2AC8FD0900CD87D1 /* Fresh ReminderTests */,
 				2D6133E12A82314B008EEC3D /* Products */,
@@ -132,13 +131,14 @@
 		2D6133E22A82314B008EEC3D /* Fresh Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				2DD180382AD8FDE2008825DC /* ViewModel */,
+				2DCB1E352AAF2D16009D7E80 /* View */,
+				2DCB1E342AAF2D10009D7E80 /* Model */,
 				79435DAA2AD3DF1E00270673 /* Fresh-Reminder-Info.plist */,
 				793063D72ACD332D00CD87D1 /* Classifier.swift */,
 				2DD1802D2AD63EE4008825DC /* FreshReminderImageClassifier.mlmodel */,
 				79435DA82ACD41E700270673 /* MobileNetV2.mlmodel */,
 				793063DB2ACD334800CD87D1 /* ImageClassifier.swift */,
-				2DCB1E352AAF2D16009D7E80 /* View */,
-				2DCB1E342AAF2D10009D7E80 /* Model */,
 				2D6133E32A82314B008EEC3D /* Fresh_ReminderApp.swift */,
 				2D6133E72A82314D008EEC3D /* Assets.xcassets */,
 				2D6133E92A82314D008EEC3D /* Fresh_Reminder.entitlements */,
@@ -162,7 +162,6 @@
 				2D81E6712A9B1CFC007CA724 /* Components */,
 				2DD1802F2AD8196E008825DC /* CalendarViewController.swift */,
 				2DD180322AD819A9008825DC /* CalendarView.swift */,
-				2DD180362AD8EF8F008825DC /* CalendarViewModel.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -238,6 +237,15 @@
 				2D81E6652A934B0A007CA724 /* Util */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2DD180382AD8FDE2008825DC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				794F2CDC2AB18D6F0023FA34 /* CoreDataViewModel.swift */,
+				2DD180362AD8EF8F008825DC /* CalendarViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		793063B72AC26B6700CD87D1 /* Camera */ = {
