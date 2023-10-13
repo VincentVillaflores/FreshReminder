@@ -14,9 +14,6 @@ class CalendarViewModel: ObservableObject {
     @Published
     var monthOffset = 0
     
-    @Published
-    var dateSet: Set<Date> = []
-    
     func selectDate(date: Date) {
         self.selectedDate = date
     }
@@ -28,6 +25,4 @@ class CalendarViewModel: ObservableObject {
     func prevMonth() {
         self.monthOffset -= 1
     }
-    
-    func updateDateSet() {}
 }
