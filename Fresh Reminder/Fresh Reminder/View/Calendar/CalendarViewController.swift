@@ -10,13 +10,8 @@ import UIKit
 
 
 struct CalendarViewController: UIViewControllerRepresentable {
-    let dateSet: Set<Date>
-    
-    @Binding
-    var monthOffset: Int
-    
-    @Binding
-    var selectedDate: Date
+    @EnvironmentObject
+    var calendarViewModel: CalendarViewModel
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -29,7 +24,7 @@ struct CalendarViewController: UIViewControllerRepresentable {
         pageViewController.dataSource = context.coordinator
         pageViewController.delegate = context.coordinator
 
-        pageViewController.setViewControllers([UIHostingController(rootView: CalendarGrid(selectedDate: $selectedDate, monthOffset: monthOffset, dateSet: dateSet))], direction: .forward, animated: false, completion: nil)
+        pageViewController.setViewControllers([UIHostingController(rootView: CalendarGrid(monthOffset: calendarViewModel.monthOffset))], direction: .forward, animated: false, completion: nil)
         
         return pageViewController
     }
@@ -37,11 +32,11 @@ struct CalendarViewController: UIViewControllerRepresentable {
 
     func updateUIViewController(_ pageViewController: UIPageViewController, context: Context) {
         let prevViewController = pageViewController.viewControllers?.first as? UIHostingController<CalendarGrid>
-        let prevIndex = prevViewController?.rootView.monthOffset ?? monthOffset
+        let prevIndex = prevViewController?.rootView.monthOffset ?? calendarViewModel.monthOffset
         
-        if monthOffset != prevIndex {
-            let direction: UIPageViewController.NavigationDirection = (monthOffset > prevIndex) ? .forward : .reverse
-            pageViewController.setViewControllers([UIHostingController(rootView: CalendarGrid(selectedDate: $selectedDate, monthOffset: monthOffset, dateSet: dateSet))], direction: direction, animated: true, completion: nil)
+        if calendarViewModel.monthOffset != prevIndex {
+            let direction: UIPageViewController.NavigationDirection = (calendarViewModel.monthOffset > prevIndex) ? .forward : .reverse
+            pageViewController.setViewControllers([UIHostingController(rootView: CalendarGrid(monthOffset: calendarViewModel.monthOffset))], direction: direction, animated: true, completion: nil)
         }
     }
 
@@ -60,7 +55,7 @@ struct CalendarViewController: UIViewControllerRepresentable {
             if let currView = viewController as? UIHostingController<CalendarGrid> {
                 let prevIndex = currView.rootView.monthOffset - 1
                 
-                return UIHostingController(rootView: CalendarGrid(selectedDate: parent.$selectedDate, monthOffset: prevIndex, dateSet: parent.dateSet))
+                return UIHostingController(rootView: CalendarGrid(monthOffset: prevIndex))
             }
             
             return nil
@@ -74,7 +69,7 @@ struct CalendarViewController: UIViewControllerRepresentable {
             if let currView = viewController as? UIHostingController<CalendarGrid> {
                 let nextIndex = currView.rootView.monthOffset + 1
                 
-                return UIHostingController(rootView: CalendarGrid(selectedDate: parent.$selectedDate, monthOffset: nextIndex, dateSet: parent.dateSet))
+                return UIHostingController(rootView: CalendarGrid(monthOffset: nextIndex))
             }
             
             return nil
@@ -89,7 +84,12 @@ struct CalendarViewController: UIViewControllerRepresentable {
             if completed,
                let visibleViewController = pageViewController.viewControllers?.first as? UIHostingController<CalendarGrid> {
                 let index = visibleViewController.rootView.monthOffset
-                parent.monthOffset = index
+                if index > parent.calendarViewModel.monthOffset {
+                    parent.calendarViewModel.nextMonth()
+                }
+                if index < parent.calendarViewModel.monthOffset {
+                    parent.calendarViewModel.prevMonth()
+                }
             }
         }
     }

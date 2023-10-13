@@ -55,6 +55,14 @@ class CoreDataViewModel: ObservableObject{
             updateNotificationCategory(products: getProductsIn(category: ItemCategory.Misc.description), numOfDays: miscReminder!)
         }
     }
+    var dateSet: Set<Date> {
+        var uniqueDateSet: Set<Date> = []
+        for product in products {
+            uniqueDateSet.insert(product.expirationDate!)
+        }
+        
+        return uniqueDateSet
+    }
     
     /// Saves any changes to the reminder variables to core data.
     ///

@@ -10,43 +10,36 @@ import SwiftUI
 struct CalendarView: View {
     @EnvironmentObject var cdvm: CoreDataViewModel
     
-    @State
-    var selectedDate = getStartOfDay(date: Date.now, calendar: Calendar.current)
-    
-    @State
-    var monthOffset = 0
-    
-    var dateSet: Set<Date> {
-        return cdvm.uniqueDates()
-    }
+    @StateObject
+    var calendarViewModel = CalendarViewModel()
     
     var body: some View {
         
         VStack {
             HStack {
-                Text(verbatim: getMonthAndYear(monthOffset: monthOffset))
+                Text(verbatim: getMonthAndYear(monthOffset: calendarViewModel.monthOffset))
                 
                 Spacer()
                 
                 Button {
-                    monthOffset -= 1
+                    calendarViewModel.prevMonth()
                 } label: {
                     Image(systemName: "chevron.left")
                 }.padding([.horizontal])
                 
                 Button {
-                    monthOffset += 1
+                    calendarViewModel.nextMonth()
                 } label: {
                     Image(systemName: "chevron.right")
                 }
                 
             }.padding()
             
-            CalendarViewController(dateSet: dateSet, monthOffset: $monthOffset, selectedDate: $selectedDate).frame(minHeight: 400)
+            CalendarViewController().frame(minHeight: 400)
             
-            ProductListView(selectedDate: $selectedDate)
+            ProductListView()
             
-        }
+        }.environmentObject(calendarViewModel)
     }
 }
 

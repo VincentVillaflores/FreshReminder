@@ -9,13 +9,11 @@ import SwiftUI
 
 /// A view that represents of the Calendar month the user can use to visualise the proximity of the expiration dates of all their products.
 struct CalendarGrid: View {
-    @Binding
-    var selectedDate: Date
+    @EnvironmentObject var cdvm: CoreDataViewModel
     
     let monthOffset: Int
     
     let currDate = getStartOfDay(date: Date.now, calendar: Calendar.current)
-    let dateSet: Set<Date>
     
     var monthDate: Date { Calendar.current.date(byAdding: .month, value: monthOffset, to: currDate)! }
     
@@ -48,9 +46,8 @@ struct CalendarGrid: View {
                     let components = Calendar.current.dateComponents([.day, .month], from: value.date)
                     
                     CalendarButton(
-                        selectedDate: $selectedDate,
                         isCurrDate: (currDate == value.date),
-                        hasExpiringItems: dateSet.contains(value.date),
+                        hasExpiringItems: cdvm.dateSet.contains(value.date),
                         monthInt: monthInt, components: components,
                         buttonDateColor: value
                     )
@@ -62,10 +59,10 @@ struct CalendarGrid: View {
 
 /// The user will be able to view all the items that are expiring on the selected day.
 struct CalendarButton: View {
-    @Binding
-    var selectedDate: Date
+    @EnvironmentObject
+    var calendarViewModel: CalendarViewModel
     
-    var isSelected: Bool { selectedDate == buttonDateColor.date }
+    var isSelected: Bool { calendarViewModel.selectedDate == buttonDateColor.date }
     
     let isCurrDate: Bool
     let hasExpiringItems: Bool
@@ -91,15 +88,19 @@ struct CalendarButton: View {
             
             // Day number as button
             Button {
-                if (components.month != monthInt) {
-                    //monthOffset += components.month! - monthInt
+                if components.month! > monthInt {
+                    calendarViewModel.nextMonth()
                 }
                 
-                if (buttonDateColor.date == selectedDate) {
+                if components.month! < monthInt {
+                    calendarViewModel.prevMonth()
+                }
+                
+                if (buttonDateColor.date == calendarViewModel.selectedDate) {
                     return
                 }
                 
-                selectedDate = buttonDateColor.date
+                calendarViewModel.selectDate(date: buttonDateColor.date)
             } label: {
                 Text("\(components.day!)")
                     .foregroundColor(isSelected ? .white : buttonDateColor.color)
@@ -150,7 +151,9 @@ struct MockCalendarGrid: View {
     }
     
     var body: some View {
-        CalendarGrid(selectedDate: $selectedDate, monthOffset: monthOffset, dateSet: dateSet)
+        CalendarGrid(monthOffset: monthOffset)
+            .environmentObject(CalendarViewModel())
+            .environmentObject(cdvm)
     }
 }
 #endif

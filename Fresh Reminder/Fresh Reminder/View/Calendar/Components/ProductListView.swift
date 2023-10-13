@@ -10,23 +10,21 @@ import SwiftUI
 struct ProductListView: View {
     @EnvironmentObject var cdvm: CoreDataViewModel
     
-    @Binding
-    var selectedDate: Date
+    @EnvironmentObject var calendarViewModel: CalendarViewModel
     
-    var expiringProducts: [Product] { cdvm.getProductsExpiringOn(date: selectedDate) }
+    var expiringProducts: [Product] { cdvm.getProductsExpiringOn(date: calendarViewModel.selectedDate) }
     
     var body: some View {
         List {
-            let expiringProducts: [Product] = cdvm.getProductsExpiringOn(date: selectedDate)
             if !expiringProducts.isEmpty {
-                Section("Expiring on \(formatDate(date: selectedDate))") {
+                Section("Expiring on \(formatDate(date: calendarViewModel.selectedDate))") {
                     ForEach(expiringProducts) { item in
                         ItemSheet(item: Binding.constant(item), displayDate: false)
                     }
                 }
             }
             else {
-                Section("Nothing expiring on \(formatDate(date: selectedDate))"){}
+                Section("Nothing expiring on \(formatDate(date: calendarViewModel.selectedDate))"){}
             }
         }
     }
@@ -50,9 +48,10 @@ struct MockProductListView: View {
     var selectedDate = getStartOfDay(date: Date.now, calendar: Calendar.current)
     
     var body: some View {
-        ProductListView(selectedDate: $selectedDate)
+        ProductListView()
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
             .environmentObject(cdvm)
+            .environmentObject(CalendarViewModel())
     }
 }
 #endif
