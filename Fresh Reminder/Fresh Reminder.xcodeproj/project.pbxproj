@@ -51,6 +51,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2DD180572ADA8BCE008825DC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2D08D3BE2AB6AE8500921648 /* FoodieAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieAPIModel.swift; sourceTree = "<group>"; };
 		2D08D3C02AB6B2EA00921648 /* ItemSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearchView.swift; sourceTree = "<group>"; };
@@ -76,6 +89,7 @@
 		2DD180342AD84B15008825DC /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		2DD180362AD8EF8F008825DC /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		2DD180392ADA839C008825DC /* FoodieAPIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieAPIViewModel.swift; sourceTree = "<group>"; };
+		2DD180432ADA8BCB008825DC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		793063BE2AC8FD0900CD87D1 /* Fresh ReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fresh ReminderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793063C02AC8FD0900CD87D1 /* Fresh_ReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fresh_ReminderTests.swift; sourceTree = "<group>"; };
 		793063C72AC8FD7A00CD87D1 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
@@ -113,6 +127,7 @@
 			children = (
 				2D6133E22A82314B008EEC3D /* Fresh Reminder */,
 				793063BF2AC8FD0900CD87D1 /* Fresh ReminderTests */,
+				2DD180402ADA8BCB008825DC /* Frameworks */,
 				2D6133E12A82314B008EEC3D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -245,6 +260,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		2DD180402ADA8BCB008825DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DD180432ADA8BCB008825DC /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		793063B72AC26B6700CD87D1 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +295,7 @@
 				2D6133DC2A82314B008EEC3D /* Sources */,
 				2D6133DD2A82314B008EEC3D /* Frameworks */,
 				2D6133DE2A82314B008EEC3D /* Resources */,
+				2DD180572ADA8BCE008825DC /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -307,7 +331,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					2D6133DF2A82314B008EEC3D = {

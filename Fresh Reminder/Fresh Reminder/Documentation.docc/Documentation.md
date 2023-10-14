@@ -8,6 +8,12 @@ Food waste is the issue that we are trying to alleviate. It is easy to forget ab
 
 ## Topics
 
+### ViewModel
+- ``ImageClassifierViewModel.swift``
+- ``CoreDataViewModel.swift``
+- ``CalendarViewModel.swift``
+- ``FoodieAPIViewModel.swift``
+
 ### View
 
 - ``ImagePicker.swift``
@@ -18,17 +24,19 @@ Food waste is the issue that we are trying to alleviate. It is easy to forget ab
 - ``ItemSearchView.swift``
 - ``ItemGuideView.swift``
 - ``CalendarGrid.swift``
-- ``CalendarDates.swift``
 - ``CalendarView.swift``
+- ``CalendarViewController.swift``
 - ``SettingsView.swift``
 
 ### Model
+- ``Classifier.swift``
+- ``FreshReminderImageClassifier.mlmodel``
 - ``Model.xcdatamodeld``
 - ``Persistence.swift``
-
-### Util
-- ``NavigationUtil.swift``
 - ``FoodieAPIModel.swift``
 - ``ItemCategory.swift``
-- ``Classifier.swift``
-- ``ImageClassifier.swift``
+- ``AppDelegate.swift``
+
+### Util
+- ``Search.swift``
+- ``CalendarDates.swift``
