@@ -35,7 +35,6 @@
 		793063D82ACD332D00CD87D1 /* Classifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063D72ACD332D00CD87D1 /* Classifier.swift */; };
 		793063DC2ACD334800CD87D1 /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063DB2ACD334800CD87D1 /* ImageClassifier.swift */; };
 		79435DA72ACD3CED00270673 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79435DA62ACD3CED00270673 /* ImagePicker.swift */; };
-		79435DA92ACD41E700270673 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 79435DA82ACD41E700270673 /* MobileNetV2.mlmodel */; };
 		79435DAC2AD3E05600270673 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79435DAB2AD3E05600270673 /* AppDelegate.swift */; };
 		794F2CD92AAFD4C20023FA34 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CD72AAFD4C20023FA34 /* Model.xcdatamodeld */; };
 		794F2CDB2AAFD7130023FA34 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CDA2AAFD7130023FA34 /* Persistence.swift */; };
@@ -84,7 +83,6 @@
 		793063D72ACD332D00CD87D1 /* Classifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classifier.swift; sourceTree = "<group>"; };
 		793063DB2ACD334800CD87D1 /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
 		79435DA62ACD3CED00270673 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		79435DA82ACD41E700270673 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 		79435DAA2AD3DF1E00270673 /* Fresh-Reminder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Fresh-Reminder-Info.plist"; sourceTree = SOURCE_ROOT; };
 		79435DAB2AD3E05600270673 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		794F2CD82AAFD4C20023FA34 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 				79435DAA2AD3DF1E00270673 /* Fresh-Reminder-Info.plist */,
 				793063D72ACD332D00CD87D1 /* Classifier.swift */,
 				2DD1802D2AD63EE4008825DC /* FreshReminderImageClassifier.mlmodel */,
-				79435DA82ACD41E700270673 /* MobileNetV2.mlmodel */,
 				793063DB2ACD334800CD87D1 /* ImageClassifier.swift */,
 				2D6133E32A82314B008EEC3D /* Fresh_ReminderApp.swift */,
 				2D6133E72A82314D008EEC3D /* Assets.xcassets */,
@@ -368,7 +365,6 @@
 				793063D82ACD332D00CD87D1 /* Classifier.swift in Sources */,
 				794F2CDD2AB18D6F0023FA34 /* CoreDataViewModel.swift in Sources */,
 				79435DA72ACD3CED00270673 /* ImagePicker.swift in Sources */,
-				79435DA92ACD41E700270673 /* MobileNetV2.mlmodel in Sources */,
 				2D81E6472A89FB95007CA724 /* CalendarDates.swift in Sources */,
 				794F2CDB2AAFD7130023FA34 /* Persistence.swift in Sources */,
 				2D81E6752A9B1F54007CA724 /* NewItemView.swift in Sources */,
