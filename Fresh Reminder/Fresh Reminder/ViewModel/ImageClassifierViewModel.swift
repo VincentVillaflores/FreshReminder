@@ -1,8 +1,8 @@
 //
 //  ImageClassification.swift
-//  Fresh Reminder
+//  SeeFood
 //
-//  Created by Vincent Villaflores on 11/10/2023.
+//  Created by Leon Wei on 5/31/21.
 //
 
 import SwiftUI
@@ -13,7 +13,7 @@ import SwiftUI
 /// It uses the `Classifier` to perform image classification and updates its subscribers whenever a classification is completed.
 /// The primary use-case is to bind this class's properties to SwiftUI views, allowing for reactive UI updates in response to classification tasks.
 ///
-class ImageClassifier: ObservableObject {
+class ImageClassifierViewModel: ObservableObject {
     
     /// An instance of the `Classifier` structure to handle the core classification tasks.
     @Published private var classifier = Classifier()

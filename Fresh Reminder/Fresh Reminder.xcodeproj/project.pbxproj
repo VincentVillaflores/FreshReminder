@@ -33,7 +33,7 @@
 		793063C82AC8FD7A00CD87D1 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063C72AC8FD7A00CD87D1 /* CoreDataTests.swift */; };
 		793063D02ACAA5F600CD87D1 /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 793063CF2ACAA5F600CD87D1 /* Documentation.docc */; };
 		793063D82ACD332D00CD87D1 /* Classifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063D72ACD332D00CD87D1 /* Classifier.swift */; };
-		793063DC2ACD334800CD87D1 /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063DB2ACD334800CD87D1 /* ImageClassifier.swift */; };
+		793063DC2ACD334800CD87D1 /* ImageClassifierViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063DB2ACD334800CD87D1 /* ImageClassifierViewModel.swift */; };
 		79435DA72ACD3CED00270673 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79435DA62ACD3CED00270673 /* ImagePicker.swift */; };
 		79435DAC2AD3E05600270673 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79435DAB2AD3E05600270673 /* AppDelegate.swift */; };
 		794F2CD92AAFD4C20023FA34 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 794F2CD72AAFD4C20023FA34 /* Model.xcdatamodeld */; };
@@ -81,7 +81,7 @@
 		793063C72AC8FD7A00CD87D1 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		793063CF2ACAA5F600CD87D1 /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
 		793063D72ACD332D00CD87D1 /* Classifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classifier.swift; sourceTree = "<group>"; };
-		793063DB2ACD334800CD87D1 /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
+		793063DB2ACD334800CD87D1 /* ImageClassifierViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifierViewModel.swift; sourceTree = "<group>"; };
 		79435DA62ACD3CED00270673 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		79435DAA2AD3DF1E00270673 /* Fresh-Reminder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Fresh-Reminder-Info.plist"; sourceTree = SOURCE_ROOT; };
 		79435DAB2AD3E05600270673 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,9 +134,6 @@
 				2DCB1E342AAF2D10009D7E80 /* Model */,
 				2D81E6652A934B0A007CA724 /* Util */,
 				79435DAA2AD3DF1E00270673 /* Fresh-Reminder-Info.plist */,
-				793063D72ACD332D00CD87D1 /* Classifier.swift */,
-				2DD1802D2AD63EE4008825DC /* FreshReminderImageClassifier.mlmodel */,
-				793063DB2ACD334800CD87D1 /* ImageClassifier.swift */,
 				2D6133E32A82314B008EEC3D /* Fresh_ReminderApp.swift */,
 				2D6133E72A82314D008EEC3D /* Assets.xcassets */,
 				2D6133E92A82314D008EEC3D /* Fresh_Reminder.entitlements */,
@@ -212,6 +209,8 @@
 		2DCB1E342AAF2D10009D7E80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				793063D72ACD332D00CD87D1 /* Classifier.swift */,
+				2DD1802D2AD63EE4008825DC /* FreshReminderImageClassifier.mlmodel */,
 				794F2CD72AAFD4C20023FA34 /* Model.xcdatamodeld */,
 				2D08D3CA2ABEE32400921648 /* NavigationUtil.swift */,
 				794F2CDA2AAFD7130023FA34 /* Persistence.swift */,
@@ -238,6 +237,7 @@
 		2DD180382AD8FDE2008825DC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				793063DB2ACD334800CD87D1 /* ImageClassifierViewModel.swift */,
 				794F2CDC2AB18D6F0023FA34 /* CoreDataViewModel.swift */,
 				2DD180362AD8EF8F008825DC /* CalendarViewModel.swift */,
 				2DD180392ADA839C008825DC /* FoodieAPIViewModel.swift */,
@@ -373,7 +373,7 @@
 				2D08D3C72ABC1F2D00921648 /* Search.swift in Sources */,
 				2D81E6692A934BA3007CA724 /* CalendarGrid.swift in Sources */,
 				2D6133E62A82314B008EEC3D /* ContentView.swift in Sources */,
-				793063DC2ACD334800CD87D1 /* ImageClassifier.swift in Sources */,
+				793063DC2ACD334800CD87D1 /* ImageClassifierViewModel.swift in Sources */,
 				2D6133E42A82314B008EEC3D /* Fresh_ReminderApp.swift in Sources */,
 				2D81E6702A9ADE5B007CA724 /* ItemSheet.swift in Sources */,
 				2D08D3CE2ABEE81C00921648 /* ItemCategory.swift in Sources */,

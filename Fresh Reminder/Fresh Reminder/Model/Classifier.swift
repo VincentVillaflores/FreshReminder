@@ -1,8 +1,8 @@
 //
 //  Classifier.swift
-//  Fresh Reminder
+//  SeeFood
 //
-//  Created by Vincent Villaflores on 11/10/2023.
+//  Created by Leon Wei on 5/31/21.
 //
 
 import CoreML

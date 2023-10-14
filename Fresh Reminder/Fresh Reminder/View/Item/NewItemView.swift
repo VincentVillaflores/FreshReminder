@@ -13,7 +13,7 @@ import SwiftUI
 struct NewItemView: View {
     @State var isPresenting: Bool = false
     @State var uiImage: UIImage?
-    @StateObject var classifier = ImageClassifier()
+    @StateObject var classifier = ImageClassifierViewModel()
     @State var sourceType: UIImagePickerController.SourceType = .camera
     @State var errorPopup = false
     
