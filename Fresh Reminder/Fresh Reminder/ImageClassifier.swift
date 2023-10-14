@@ -1,8 +1,8 @@
 //
 //  ImageClassification.swift
-//  SeeFood
+//  Fresh Reminder
 //
-//  Created by Leon Wei on 5/31/21.
+//  Created by Vincent Villaflores on 11/10/2023.
 //
 
 import SwiftUI
