@@ -24,24 +24,26 @@ struct NewItemView: View {
         VStack{
             Form {
                 Section(header: Text("Item Name")) {
-                    TextField("Name", text: $itemName)
                     HStack{
-                        Button {
-                            isPresenting = true
-                            sourceType = .photoLibrary
+                        TextField("Name", text: $itemName)
+                        
+                        Menu {
+                            Button {
+                                isPresenting = true
+                                sourceType = .camera
+                            } label: {
+                                Label("Take Photo", systemImage: "camera")
+                            }
+                            
+                            Button {
+                                isPresenting = true
+                                sourceType = .photoLibrary
+                            } label: {
+                                Label("Photo Library", systemImage: "photo.on.rectangle")
+                            }
+                            
                         } label: {
                             Image(systemName: "photo")
-                                .frame(maxWidth: .infinity)
-                        }.buttonStyle(.bordered)
-                        
-                        Divider().padding()
-                        
-                        Button {
-                            isPresenting = true
-                            sourceType = .camera
-                        } label: {
-                            Image(systemName: "camera")
-                                .frame(maxWidth: .infinity)
                         }.buttonStyle(.bordered)
                     }
                 }
@@ -57,7 +59,7 @@ struct NewItemView: View {
                     if uiImage != nil {
                         classifier.detect(uiImage: uiImage!)
                         switch classifier.imageClass {
-                        case "nothing":
+                        case nil:
                             errorPopup = true
                         default:
                             itemName = classifier.imageClass ?? ""
