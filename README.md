@@ -1,43 +1,60 @@
 # a2-s3784709
-Fresh Reminder App Prototype
-
-**OLD README, NEEDS UPDATING**
+Fresh Reminder App 
 
 ## Project Overview
 Fresh Reminder is an app which tracks the expiration dates of foods which you have purchased in recent shopping trips, so that you can be reminded (prior to them going off/expiring). This reduces food waste, along with increasing food handling safety.
-Future versions of the project will contain machine learning integration, in order to classify images of your shopping trips, so that you will need to enter little/no information and the app can handle the majority of the heavy lifting.
+Additionally, the app uses an image classification machine learning model, in tandem with an API to get the shelf life of a given item, to determine which items you have bought on a shopping trip and then auto-populate its shelf life and other pertinent information.
 
 MiroBoard - https://miro.com/app/board/uXjVMo2Qf70=/?share_link_id=568492534675
 
 ## Project Structure
-Philosophy can be found in report, and in conjunction with this philosophy the following structure was adopted:
 ```
-├── Util
-├── Components
-├── Item
-│   ├── Components
-│   │   └── Item-relevant Components 
-│   └── ItemView
-├── Fridge
-│   ├── Components
-│   │   └── Fridge-relevant Components 
-│   └── FridgeView
-├── Settings
-│   ├── Components
-│   │   └── Settings-relevant Components 
-│   └── SettingsView
-├── Calendar
-│   ├── Components
-│   │   └── Calendar-relevant Components 
-│   └── CalendarView
 ├── FreshReminder_App
-└── ContentView
+├── Util
+│   ├── Search
+│   └── CalendarDates
+├── ViewModel
+│   ├── ImageClassifierViewModel
+│   ├── CoreDataViewModel
+│   ├── CalendarViewModel
+│   └── FoodieAPIViewModel
+├── View
+│   ├── Camera
+│   │   └── FridgeView
+│   ├── Item
+│   │   ├── ItemSheet
+│   │   ├── NewItemView
+│   │   ├── ItemSearchView
+│   │   └── ItemGuideView
+│   ├── Fridge
+│   │   └── FridgeView
+│   ├── Settings
+│   │   └── SettingsView
+│   ├── Calendar
+│   │   ├── Components
+│   │   │   └── Calendar-relevant Components 
+│   │   └── CalendarView
+│   └── ContentView
+└── Model
+    ├── Classifier
+    ├── FreshReminderImageClassifier
+    ├── Model
+    ├── NavigationUtil
+    ├── Persistence
+    ├── FoodieAPIModel
+    ├── ItemCategory
+    └── AppDelegate
+
 ```
 
 ## Requirements
-- Xcode 13 or higher
-- iOS 16 or higher
-- iPhone 14 Pro (recommended)
+- Xcode 14 or higher
+- iOS 17 or higher
+
+## Build Instructions
+1. Pull the repository
+2. Open in Xcode
+3. Press ``⌘ + B`` to build
 
 ## Run Instructions
 1. Pull the repository
