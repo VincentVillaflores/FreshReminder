@@ -28,10 +28,6 @@ struct FridgeView: View {
     /// Navigation path used for the navigation stack.
     @State
     var path = NavigationPath()
-
-    /// Boolean flag indicating whether the add-item choices should be presented.
-    @State
-    var presentChoices = false
     
     var body: some View {
         NavigationStack(path: $path) {
@@ -57,26 +53,12 @@ struct FridgeView: View {
                 }
             }
             .toolbar {
-                Button {
-                    presentChoices = true
-                } label: {
+                NavigationLink(value: Destinations.searchItem) {
                     Image(systemName: "plus")
                 }
             }
-            .confirmationDialog("New Item", isPresented: $presentChoices) {
-                NavigationLink("Search for Item", value: Destinations.searchItem)
-                NavigationLink("Take Photo of Item", value: Destinations.photoItem)
-            }
             .navigationDestination(for: Destinations.self) { destination in
-                switch destination {
-                
-                case .searchItem:
-                    NewItemView()
-                    
-                case .photoItem:
-                    // TODO: Replace with camera view
-                    NewItemView()
-                }
+                NewItemView()
             }
             .navigationDestination(for: String.self) { textValue in
                 ItemSearchView(itemSearch: textValue)
