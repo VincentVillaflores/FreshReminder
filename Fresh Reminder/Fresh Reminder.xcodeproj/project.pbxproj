@@ -11,7 +11,7 @@
 		2D08D3C12AB6B2EA00921648 /* ItemSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08D3C02AB6B2EA00921648 /* ItemSearchView.swift */; };
 		2D08D3C32ABC0BF000921648 /* ItemGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08D3C22ABC0BEF00921648 /* ItemGuideView.swift */; };
 		2D08D3C72ABC1F2D00921648 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08D3C62ABC1F2D00921648 /* Search.swift */; };
-		2D08D3CB2ABEE32400921648 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08D3CA2ABEE32400921648 /* NavigationUtil.swift */; };
+		2D08D3CB2ABEE32400921648 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08D3CA2ABEE32400921648 /* Navigation.swift */; };
 		2D08D3CE2ABEE81C00921648 /* ItemCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08D3CD2ABEE81C00921648 /* ItemCategory.swift */; };
 		2D6133E42A82314B008EEC3D /* Fresh_ReminderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6133E32A82314B008EEC3D /* Fresh_ReminderApp.swift */; };
 		2D6133E62A82314B008EEC3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6133E52A82314B008EEC3D /* ContentView.swift */; };
@@ -29,9 +29,9 @@
 		2DD180352AD84B15008825DC /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD180342AD84B15008825DC /* ProductListView.swift */; };
 		2DD180372AD8EF8F008825DC /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD180362AD8EF8F008825DC /* CalendarViewModel.swift */; };
 		2DD1803A2ADA839C008825DC /* FoodieAPIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD180392ADA839C008825DC /* FoodieAPIViewModel.swift */; };
+		2DD180592ADA9796008825DC /* Fresh ReminderCatalog.docc in Sources */ = {isa = PBXBuildFile; fileRef = 2DD180582ADA9796008825DC /* Fresh ReminderCatalog.docc */; };
 		793063C12AC8FD0900CD87D1 /* Fresh_ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063C02AC8FD0900CD87D1 /* Fresh_ReminderTests.swift */; };
 		793063C82AC8FD7A00CD87D1 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063C72AC8FD7A00CD87D1 /* CoreDataTests.swift */; };
-		793063D02ACAA5F600CD87D1 /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 793063CF2ACAA5F600CD87D1 /* Documentation.docc */; };
 		793063D82ACD332D00CD87D1 /* Classifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063D72ACD332D00CD87D1 /* Classifier.swift */; };
 		793063DC2ACD334800CD87D1 /* ImageClassifierViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793063DB2ACD334800CD87D1 /* ImageClassifierViewModel.swift */; };
 		79435DA72ACD3CED00270673 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79435DA62ACD3CED00270673 /* ImagePicker.swift */; };
@@ -69,7 +69,7 @@
 		2D08D3C02AB6B2EA00921648 /* ItemSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearchView.swift; sourceTree = "<group>"; };
 		2D08D3C22ABC0BEF00921648 /* ItemGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemGuideView.swift; sourceTree = "<group>"; };
 		2D08D3C62ABC1F2D00921648 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
-		2D08D3CA2ABEE32400921648 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
+		2D08D3CA2ABEE32400921648 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		2D08D3CD2ABEE81C00921648 /* ItemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategory.swift; sourceTree = "<group>"; };
 		2D6133E02A82314B008EEC3D /* Fresh Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fresh Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D6133E32A82314B008EEC3D /* Fresh_ReminderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fresh_ReminderApp.swift; sourceTree = "<group>"; };
@@ -90,10 +90,10 @@
 		2DD180362AD8EF8F008825DC /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		2DD180392ADA839C008825DC /* FoodieAPIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieAPIViewModel.swift; sourceTree = "<group>"; };
 		2DD180432ADA8BCB008825DC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		2DD180582ADA9796008825DC /* Fresh ReminderCatalog.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = "Fresh ReminderCatalog.docc"; sourceTree = "<group>"; };
 		793063BE2AC8FD0900CD87D1 /* Fresh ReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fresh ReminderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793063C02AC8FD0900CD87D1 /* Fresh_ReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fresh_ReminderTests.swift; sourceTree = "<group>"; };
 		793063C72AC8FD7A00CD87D1 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
-		793063CF2ACAA5F600CD87D1 /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
 		793063D72ACD332D00CD87D1 /* Classifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classifier.swift; sourceTree = "<group>"; };
 		793063DB2ACD334800CD87D1 /* ImageClassifierViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifierViewModel.swift; sourceTree = "<group>"; };
 		79435DA62ACD3CED00270673 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 				2D6133E72A82314D008EEC3D /* Assets.xcassets */,
 				2D6133E92A82314D008EEC3D /* Fresh_Reminder.entitlements */,
 				2D6133EA2A82314D008EEC3D /* Preview Content */,
-				793063CF2ACAA5F600CD87D1 /* Documentation.docc */,
+				2DD180582ADA9796008825DC /* Fresh ReminderCatalog.docc */,
 			);
 			path = "Fresh Reminder";
 			sourceTree = "<group>";
@@ -227,7 +227,7 @@
 				793063D72ACD332D00CD87D1 /* Classifier.swift */,
 				2DD1802D2AD63EE4008825DC /* FreshReminderImageClassifier.mlmodel */,
 				794F2CD72AAFD4C20023FA34 /* Model.xcdatamodeld */,
-				2D08D3CA2ABEE32400921648 /* NavigationUtil.swift */,
+				2D08D3CA2ABEE32400921648 /* Navigation.swift */,
 				794F2CDA2AAFD7130023FA34 /* Persistence.swift */,
 				2D08D3BE2AB6AE8500921648 /* FoodieAPIModel.swift */,
 				2D08D3CD2ABEE81C00921648 /* ItemCategory.swift */,
@@ -395,6 +395,7 @@
 				79435DAC2AD3E05600270673 /* AppDelegate.swift in Sources */,
 				2D81E63C2A82333E007CA724 /* SettingsView.swift in Sources */,
 				2D08D3C72ABC1F2D00921648 /* Search.swift in Sources */,
+				2DD180592ADA9796008825DC /* Fresh ReminderCatalog.docc in Sources */,
 				2D81E6692A934BA3007CA724 /* CalendarGrid.swift in Sources */,
 				2D6133E62A82314B008EEC3D /* ContentView.swift in Sources */,
 				793063DC2ACD334800CD87D1 /* ImageClassifierViewModel.swift in Sources */,
@@ -406,9 +407,8 @@
 				794F2CD92AAFD4C20023FA34 /* Model.xcdatamodeld in Sources */,
 				2D81E63A2A823328007CA724 /* FridgeView.swift in Sources */,
 				2DD1803A2ADA839C008825DC /* FoodieAPIViewModel.swift in Sources */,
-				793063D02ACAA5F600CD87D1 /* Documentation.docc in Sources */,
 				2D08D3BF2AB6AE8500921648 /* FoodieAPIModel.swift in Sources */,
-				2D08D3CB2ABEE32400921648 /* NavigationUtil.swift in Sources */,
+				2D08D3CB2ABEE32400921648 /* Navigation.swift in Sources */,
 				2DD180302AD8196E008825DC /* CalendarViewController.swift in Sources */,
 				2D08D3C32ABC0BF000921648 /* ItemGuideView.swift in Sources */,
 				2DD180332AD819A9008825DC /* CalendarView.swift in Sources */,
