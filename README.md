@@ -1,6 +1,8 @@
 # a2-s3784709
 Fresh Reminder App 
 
+![image](https://github.com/VincentVillaflores/FreshReminder/assets/127155347/59eda985-cc63-4640-bcb3-35a1982d9123)
+
 ## Project Overview
 Fresh Reminder is an app which tracks the expiration dates of foods which you have purchased in recent shopping trips, so that you can be reminded (prior to them going off/expiring). This reduces food waste, along with increasing food handling safety.
 Additionally, the app uses an image classification machine learning model, in tandem with an API to get the shelf life of a given item, to determine which items you have bought on a shopping trip and then auto-populate its shelf life and other pertinent information.
